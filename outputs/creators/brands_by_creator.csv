@@ -1,0 +1,187 @@
+creator_id,handle,brand,n_posts,n_sponsored
+CR-01,drgarima_mehta,Alkem,1,0
+CR-01,drgarima_mehta,Calpol,1,0
+CR-01,drgarima_mehta,Carepure,1,1
+CR-01,drgarima_mehta,Chupa Chups,1,0
+CR-01,drgarima_mehta,Cipla,1,0
+CR-01,drgarima_mehta,Dr. Reddy's,1,0
+CR-01,drgarima_mehta,Ibugesic Plus,1,0
+CR-01,drgarima_mehta,LifeCell,1,1
+CR-01,drgarima_mehta,Meftal,1,0
+CR-01,drgarima_mehta,Woodwards,2,0
+CR-02,livesimply_withkripa,Cadbury,2,0
+CR-02,livesimply_withkripa,Diet Coke,1,0
+CR-02,livesimply_withkripa,Happilo,1,0
+CR-02,livesimply_withkripa,Qatar Airways,1,0
+CR-02,livesimply_withkripa,Reliance,1,0
+CR-02,livesimply_withkripa,Safari,1,0
+CR-02,livesimply_withkripa,Voltas,1,0
+CR-03,ekamichildcare,Areoveda,1,1
+CR-03,ekamichildcare,Calvin Klein,1,0
+CR-03,ekamichildcare,Lacoste,1,0
+CR-03,ekamichildcare,Little Tummys,1,0
+CR-03,ekamichildcare,Troovy,1,1
+CR-04,hello_ps8,Bajaj Finance,1,1
+CR-04,hello_ps8,Cult,1,1
+CR-04,hello_ps8,Mahindra,2,0
+CR-04,hello_ps8,Prada,1,0
+CR-05,sia_3vedi,Disney,1,1
+CR-05,sia_3vedi,Frozen,1,1
+CR-05,sia_3vedi,Gritzo,1,1
+CR-05,sia_3vedi,HP,1,0
+CR-05,sia_3vedi,Hollyland,1,0
+CR-05,sia_3vedi,Keekee,1,0
+CR-05,sia_3vedi,booba_babydoll,1,0
+CR-06,thatkushalmistry,Apple,1,0
+CR-06,thatkushalmistry,Balenciaga,1,0
+CR-06,thatkushalmistry,Samsung,1,1
+CR-06,thatkushalmistry,YouTube,1,0
+CR-07,ohmother.in,Amazon,1,1
+CR-07,ohmother.in,Barosi,1,0
+CR-07,ohmother.in,Bellerose,1,0
+CR-07,ohmother.in,Doms,1,0
+CR-07,ohmother.in,Hello Kitty,1,0
+CR-07,ohmother.in,Maggi,1,0
+CR-07,ohmother.in,Marriott,1,0
+CR-07,ohmother.in,Qubo,1,1
+CR-07,ohmother.in,Skergo,1,1
+CR-07,ohmother.in,Yum,1,0
+CR-07,ohmother.in,one.science.nutrition.in,1,1
+CR-07,ohmother.in,undertone_official,1,1
+CR-08,the_mum_wife_playbook,Bunkers,1,0
+CR-08,the_mum_wife_playbook,Epigamia,1,1
+CR-08,the_mum_wife_playbook,Lyfcare,1,1
+CR-08,the_mum_wife_playbook,Moschino,1,0
+CR-08,the_mum_wife_playbook,Posh Affaires,1,1
+CR-08,the_mum_wife_playbook,Shopsy,1,1
+CR-08,the_mum_wife_playbook,WonderBuddy,1,1
+CR-09,doc_mama_and_babies,Bharat Biotech,1,1
+CR-09,doc_mama_and_babies,Good Monk,1,1
+CR-09,doc_mama_and_babies,John Jacobs,1,1
+CR-09,doc_mama_and_babies,Kesh King,1,1
+CR-09,doc_mama_and_babies,Lenskart,1,1
+CR-09,doc_mama_and_babies,Manna,1,1
+CR-09,doc_mama_and_babies,Nisarga Herbs,1,1
+CR-09,doc_mama_and_babies,Sorozema,1,1
+CR-09,doc_mama_and_babies,Treat Resort Silvassa,1,1
+CR-09,doc_mama_and_babies,maxfashionindia,1,1
+CR-10,couple_adishiv,Cipladine,1,0
+CR-10,couple_adishiv,Dressberry,1,0
+CR-10,couple_adishiv,Firstcry Parenting,1,1
+CR-10,couple_adishiv,Gritzo,1,1
+CR-10,couple_adishiv,Joyo,1,0
+CR-10,couple_adishiv,Myntra,1,1
+CR-10,couple_adishiv,Pampers,2,2
+CR-10,couple_adishiv,Priority,1,1
+CR-10,couple_adishiv,Tedibar,1,1
+CR-10,couple_adishiv,Triveni Almirah,1,0
+CR-10,couple_adishiv,facescanada,1,1
+CR-10,couple_adishiv,flipkart,2,2
+CR-10,couple_adishiv,krsd_group,1,1
+CR-11,raja_choudhary04,D.Mart,1,0
+CR-11,raja_choudhary04,Domino's,1,0
+CR-11,raja_choudhary04,Gritzo,2,2
+CR-11,raja_choudhary04,LuvLap,1,0
+CR-11,raja_choudhary04,Marvel,1,0
+CR-11,raja_choudhary04,Puma,1,0
+CR-11,raja_choudhary04,SKY,1,1
+CR-11,raja_choudhary04,Spider-Man,1,1
+CR-11,raja_choudhary04,StayVista,1,1
+CR-11,raja_choudhary04,Tata,1,0
+CR-11,raja_choudhary04,Troovy Foods,1,1
+CR-11,raja_choudhary04,hopupchandigarh,1,1
+CR-11,raja_choudhary04,hopupindia,1,1
+CR-11,raja_choudhary04,mamaearth,1,1
+CR-12,raising_zohran,Good Knight,2,0
+CR-12,raising_zohran,KleeNest,2,2
+CR-12,raising_zohran,Klenzmo,1,1
+CR-12,raising_zohran,Nivea,1,0
+CR-12,raising_zohran,tidysleepofficial,1,1
+CR-13,mumma_and_ridhu,Akshar Travels,1,1
+CR-13,mumma_and_ridhu,Aretto,1,1
+CR-13,mumma_and_ridhu,Ariel,1,1
+CR-13,mumma_and_ridhu,Bare Anatomy,1,1
+CR-13,mumma_and_ridhu,Haier,1,1
+CR-13,mumma_and_ridhu,Johnson's Baby,1,1
+CR-13,mumma_and_ridhu,Mankind,1,1
+CR-13,mumma_and_ridhu,Maruti Suzuki,1,1
+CR-13,mumma_and_ridhu,NESTA TOYS,1,1
+CR-13,mumma_and_ridhu,Nataraj,1,1
+CR-13,mumma_and_ridhu,Netflix,1,1
+CR-13,mumma_and_ridhu,Ova News,1,1
+CR-13,mumma_and_ridhu,Poojara,1,1
+CR-13,mumma_and_ridhu,Prega News,2,2
+CR-13,mumma_and_ridhu,Vanish,1,1
+CR-14,parentingtips_surat,TRUFROST,1,0
+CR-14,parentingtips_surat,Trufrost,1,0
+CR-14,parentingtips_surat,suratkids,1,0
+CR-15,tej.lil.diary,Adidas,1,1
+CR-15,tej.lil.diary,Amazon,1,0
+CR-15,tej.lil.diary,Attero,1,0
+CR-15,tej.lil.diary,Crocs,1,0
+CR-15,tej.lil.diary,Gap,1,1
+CR-15,tej.lil.diary,Hey Laundry,1,1
+CR-15,tej.lil.diary,New Balance,1,0
+CR-15,tej.lil.diary,Onyc,1,0
+CR-15,tej.lil.diary,Orelle The School,1,1
+CR-15,tej.lil.diary,Pampers,1,1
+CR-15,tej.lil.diary,SUPR,1,1
+CR-15,tej.lil.diary,Shivan shishu aahar,1,0
+CR-15,tej.lil.diary,Skechers,1,0
+CR-15,tej.lil.diary,Starbucks,1,0
+CR-15,tej.lil.diary,Swarna Kanchi,1,1
+CR-15,tej.lil.diary,Zepto,1,1
+CR-15,tej.lil.diary,kidipoo,1,0
+CR-15,tej.lil.diary,lafesta.hyd,1,0
+CR-15,tej.lil.diary,reel_matic,1,0
+CR-16,paediatrics_decoded,Dabur,1,0
+CR-17,radhikabansal0908,Be Clinical,1,1
+CR-17,radhikabansal0908,BeginBird,1,1
+CR-17,radhikabansal0908,Chicco,1,1
+CR-17,radhikabansal0908,Dermicool,1,1
+CR-17,radhikabansal0908,Disney,1,1
+CR-17,radhikabansal0908,Doodle Dock,1,1
+CR-17,radhikabansal0908,Dyson,1,1
+CR-17,radhikabansal0908,FCL,1,1
+CR-17,radhikabansal0908,Fixderma,3,3
+CR-17,radhikabansal0908,Flipkart,1,1
+CR-17,radhikabansal0908,Himalaya,2,2
+CR-17,radhikabansal0908,Mamaearth,2,2
+CR-17,radhikabansal0908,Mylo,1,1
+CR-17,radhikabansal0908,Mylo Care,1,1
+CR-17,radhikabansal0908,Nandi,1,1
+CR-17,radhikabansal0908,Netflix,1,1
+CR-17,radhikabansal0908,Pintola,1,1
+CR-17,radhikabansal0908,Princess by RENÉE,1,1
+CR-17,radhikabansal0908,REDMI,1,1
+CR-17,radhikabansal0908,RENÉE,1,1
+CR-17,radhikabansal0908,Redmi,1,1
+CR-17,radhikabansal0908,Xiaomi,2,2
+CR-17,radhikabansal0908,beyond,1,1
+CR-17,radhikabansal0908,imagimake,1,1
+CR-18,foodies_by_neha,Elica,1,1
+CR-18,foodies_by_neha,safsafaiwala.com,1,1
+CR-19,instamommy_suchi,Anveshan,1,1
+CR-19,instamommy_suchi,Bournvita,1,1
+CR-19,instamommy_suchi,Complan,1,1
+CR-19,instamommy_suchi,DPIIT,1,1
+CR-19,instamommy_suchi,FCL,1,1
+CR-19,instamommy_suchi,Indira IVF,1,1
+CR-19,instamommy_suchi,Kesh King,1,1
+CR-19,instamommy_suchi,Little Angel,2,2
+CR-19,instamommy_suchi,Nova IVF Fertility,1,1
+CR-19,instamommy_suchi,PAN Health,1,1
+CR-19,instamommy_suchi,Prestige,1,1
+CR-19,instamommy_suchi,Princess by Renee,1,1
+CR-19,instamommy_suchi,R for Rabbit,1,1
+CR-19,instamommy_suchi,Rajdhani,1,1
+CR-19,instamommy_suchi,Startup India,1,1
+CR-19,instamommy_suchi,TCL,1,1
+CR-19,instamommy_suchi,Treo,1,1
+CR-19,instamommy_suchi,VAHDAM,1,1
+CR-20,storiesbyvihaa,Suzuki,1,0
+CR-20,storiesbyvihaa,aadvika_collections07,1,1
+CR-20,storiesbyvihaa,divya_bridal_makeupartist,1,1
+CR-20,storiesbyvihaa,lotsoflovestories,1,1
+CR-20,storiesbyvihaa,sowmyz_couture,2,1
+CR-20,storiesbyvihaa,sreeniaccessories,1,1
