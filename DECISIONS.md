@@ -17,3 +17,4 @@
 - Any hypothesis group under 10 ads at the chosen floor is dropped, no exceptions.
 - The days_live offset follows stopped_date batches and is treated as a data artifact; ratio metrics do not use days_live.
 - A spend floor partly selects ads the platform kept funding, so comparisons are among surviving ads.
+- Outcome metric, robustness checks and verdict tiers fixed before any performance metric was computed; H8 evaluated within H6 because every H8 ad is a H6 ad; child-status three-way split added as descriptive.

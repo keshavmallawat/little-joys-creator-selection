@@ -1,0 +1,21 @@
+primary_metric: roas            # pooled: sum(revenue_inr) / sum(spend_inr)
+mechanism_metrics: [hook_rate, ctr, cvr]
+bootstrap: {unit: ad, resamples: 2000, seed: 42, ci: 0.95}
+
+sign_checks:                    # difference = in-group minus out-group
+  - same_sign_at_all_three_floors
+  - median_per_ad_roas_diff_same_sign
+  - drop_highest_spend_ad_of_each_group_same_sign   # two reruns
+  - leave_one_stop_date_out_same_sign               # all reruns
+  - product_form_strata: report only; evaluable if both sides have >=5 ads; any stratum with >=10 ads on both sides must agree in sign
+
+tiers:
+  supported: primary hypothesis, all sign checks pass, bootstrap CI of pooled ROAS difference excludes 0
+  suggestive: all sign checks pass, CI includes 0 (any hypothesis)
+  fragile: any sign check fails
+label_cap: if spot-check agreement for the label behind a hypothesis is below 0.8, the finding is capped at suggestive and marked "label unreliable"
+
+structural:
+  S1: child status three-way (no child / child present not reacting / child reacts), descriptive only
+  S2: H8 evaluated within H6 only (parent ads), exploratory
+rule: this file is not edited after results are seen; any change is a new commit with the reason in DECISIONS.md
