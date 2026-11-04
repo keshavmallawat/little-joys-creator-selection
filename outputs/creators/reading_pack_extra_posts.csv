@@ -1,0 +1,16 @@
+creator_id,handle,frozen_rank,post_url,posted_on,content_type,is_sponsored,children_on_camera,product_shown,engagement_ratio,transcript_present,reasons
+CR-05,sia_3vedi,7,https://www.instagram.com/p/Dd8IdO_iXH_/,2026-10-01,lifestyle,no,yes,yes,,False,a_recent_child_and_product
+CR-05,sia_3vedi,7,https://www.instagram.com/p/DeEbzzUJd9T/,2026-10-04,comedy_skit,no,yes,yes,0.002648,True,a_recent_child_and_product
+CR-05,sia_3vedi,7,https://www.instagram.com/p/Dd0jxLAJngd/,2026-09-28,promotional_ad,yes,yes,yes,0.001813,False,a_recent_child_and_product;c_recent_sponsored
+CR-05,sia_3vedi,7,https://www.instagram.com/p/Dd3kb9UpbMp/,2026-09-29,other,no,yes,no,0.012722,False,b_top_engagement
+CR-05,sia_3vedi,7,https://www.instagram.com/p/DdgmFHRpgDb/,2026-09-20,lifestyle,no,yes,no,0.012954,False,b_top_engagement
+CR-03,ekamichildcare,9,https://www.instagram.com/p/DdeKzhtz6ea/,2026-09-19,expert_explainer,no,yes,yes,0.00236,True,a_recent_child_and_product
+CR-03,ekamichildcare,9,https://www.instagram.com/p/DdEWpqjI2uW/,2026-09-09,expert_explainer,yes,yes,yes,0.004096,False,a_recent_child_and_product;c_recent_sponsored
+CR-03,ekamichildcare,9,https://www.instagram.com/p/DcBaRdDTcsE/,2026-08-14,expert_explainer,no,yes,no,0.048572,False,b_top_engagement
+CR-03,ekamichildcare,9,https://www.instagram.com/p/DdOp1WtzJyp/,2026-09-13,expert_explainer,no,yes,no,0.029177,False,b_top_engagement
+CR-03,ekamichildcare,9,https://www.instagram.com/p/Dc_OQSoTB4Z/,2026-09-07,expert_explainer,yes,no,yes,0.00811,False,c_recent_sponsored
+CR-20,storiesbyvihaa,16,https://www.instagram.com/p/DdnYSLZAZt3/,2026-09-23,lifestyle,no,yes,yes,,False,a_recent_child_and_product
+CR-20,storiesbyvihaa,16,https://www.instagram.com/p/Dd2tu64BQ_N/,2026-09-29,lifestyle,yes,yes,yes,0.002072,False,a_recent_child_and_product;c_recent_sponsored
+CR-20,storiesbyvihaa,16,https://www.instagram.com/p/DdVODmzB9wN/,2026-09-16,lifestyle,yes,yes,yes,0.003348,False,a_recent_child_and_product;c_recent_sponsored
+CR-20,storiesbyvihaa,16,https://www.instagram.com/p/Dd-hpXxBSEt/,2026-10-02,lifestyle,no,yes,no,0.008009,True,b_top_engagement
+CR-20,storiesbyvihaa,16,https://www.instagram.com/p/DdfhprMBiO0/,2026-09-20,comedy_skit,no,yes,no,0.024809,False,b_top_engagement
