@@ -1,0 +1,11 @@
+hypothesis_id,name,side,n_available_at_floor,quota,n_in_sample,n_sample_total
+H1,child reacts to taste,in,36,3,10,20
+H1,child reacts to taste,out,44,3,10,20
+H2,child in first 3s (only ads with a child),in,35,3,9,20
+H2,child in first 3s (only ads with a child),out,17,3,6,20
+H4,hook is a question,in,19,3,5,20
+H4,hook is a question,out,61,3,15,20
+H6,creator is parent or caregiver,in,47,3,14,20
+H6,creator is parent or caregiver,out,33,3,6,20
+H7,voiceover montage format,in,28,3,7,20
+H7,voiceover montage format,out,52,3,13,20

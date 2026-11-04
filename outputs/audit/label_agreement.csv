@@ -1,0 +1,8 @@
+my_column,gold_column,n,n_agree,agreement_rate,n_unclear,n_unparsed,label_cap,below_label_cap
+my_child_role_reacts,child_role,0,0,,0,0,0.8,False
+my_child_in_first_3s,child_in_first_3s,0,0,,0,0,0.8,False
+my_hook_type,hook_type,0,0,,0,0,0.8,False
+my_creator_type,creator_type,0,0,,0,0,0.8,False
+my_ad_format,ad_format,0,0,,0,0,0.8,False
+my_brand_first_said,brand_first_said,0,0,,0,0,0.8,False
+ALL_LABELS,(micro-average),0,0,,0,0,0.8,False
