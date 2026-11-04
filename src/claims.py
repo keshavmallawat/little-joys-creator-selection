@@ -32,11 +32,12 @@ CHOSEN = ["CR-13", "CR-03", "CR-11", "CR-01", "CR-19"]
 BACKUPS = ["CR-05", "CR-09", "CR-16"]
 ALSO = ["CR-12", "CR-15", "CR-20"]
 CREATOR_SET = CHOSEN + BACKUPS + ALSO
+# competitor brands to look for in sponsored posts (identifiers, not figures)
+COMPETITORS = {"CR-03": ["Troovy"], "CR-11": ["Gritzo", "Troovy"], "CR-19": ["Complan", "Bournvita"]}
 
 CAV_PERF = "performance figures are synthetic; labels are AI-generated and imperfect"
 CAV_LABEL = "labels are AI-generated and imperfect"
 CAV_SCAN = "keyword/label scan over text fields; AI-generated labels are imperfect"
-CAV_MANUAL = "manual post-level check, AI-assisted, reviewed by Keshav; small sample"
 CAV_NONE = ""
 
 FLAG_COLS = [("hidden_likes", "flag_hidden_likes"),
@@ -207,7 +208,7 @@ def main() -> None:
         add(
             f"comparisons_{step}", "comparison_counts",
             f"Comparisons run in the {step} step: {total}.",
-            f"total={total}", "", f"outputs/{path.relative_to(ROOT / 'outputs')}",
+            f"total={total}", "", f"outputs/{path.relative_to(ROOT / 'outputs').as_posix()}",
             "summary Total line", CAV_NONE, "process",
         )
 
@@ -277,15 +278,38 @@ def main() -> None:
             f"brands={'; '.join(bl) if bl else 'none'}", f"n={len(bl)}",
             "outputs/creators/brands_by_creator.csv", "brand", CAV_LABEL, "descriptive")
 
+    # ---- Competitor brands in sponsored window posts -----------------------
+    wm = int(yaml.safe_load((CONFIG / "weights.yaml").read_text(encoding="utf-8"))
+             ["window"]["length_months"])
+    pdt = pd.to_datetime(posts["posted_on"])
+    w_end = pdt.max()
+    in_win = posts[(pdt > w_end - pd.DateOffset(months=wm)) & (pdt <= w_end)]
+    for cid, comps in COMPETITORS.items():
+        sub = in_win[(in_win["creator_id"] == cid) & (in_win["is_sponsored"] == "yes")]
+        hits = []
+        for _, pr in sub.sort_values("posted_on").iterrows():
+            for b in comps:
+                if b.lower() in str(pr["brands_visible"]).lower():
+                    hits.append(f"{b} {str(pr['posted_on'])[:10]}")
+        add(f"cr_{cid}_competitor_posts", "creator_profile",
+            f"{cid} has {len(hits)} sponsored window post(s) showing a competitor brand: "
+            f"{'; '.join(hits) if hits else 'none'}.",
+            f"competitor_sponsored_posts={len(hits)}", f"n={len(hits)}",
+            "data/creator_posts.csv", "posted_on,brands_visible,is_sponsored", CAV_LABEL,
+            "descriptive")
+
     # ---- Proxy precision ---------------------------------------------------
     proxy = manual[manual["check_id"] == "proxy_check"]
+    # caveat wording follows the provenance recorded on the rows themselves
+    prov = sorted(set(proxy["provenance"].astype(str).str.strip()))
+    cav_proxy = "manual " + "; ".join(prov) + "; small sample"
     n_y = int((proxy["result"] == "Y").sum())
     n_total = int(len(proxy))
     add("proxy_precision", "proxy",
         f"In a manual check of {n_total} child-and-product example posts, {n_y} were judged "
         f"to show a child eating or reacting to food ({pct(n_y / n_total)}).",
         f"n_yes={n_y}; share={f4(n_y / n_total)}", f"n={n_total}",
-        "outputs/final/manual_checks.csv", "check_id,result", CAV_MANUAL, "post-hoc-manual")
+        "outputs/final/manual_checks.csv", "check_id,result", cav_proxy, "post-hoc-manual")
 
     # ---- Limits ------------------------------------------------------------
     price_cols = [c for c in list(creators_df.columns) + list(posts.columns)

@@ -1,0 +1,4 @@
+# Python 3.10+ . Tested with the versions noted; newer minor versions should work.
+pandas>=2.2        # tested 2.3.3
+numpy>=1.26        # tested 2.2.6
+pyyaml>=6.0        # tested 6.0.3
