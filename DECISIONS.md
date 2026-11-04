@@ -8,3 +8,12 @@
 - days_live is used as recorded in the data; no analysis depends on exact day counts.
 - Supplementary audit reports multi-value label columns both as literal whole-cell values and as atomic labels split on ';' (an ad can carry several atomic labels, so atomic counts may sum past the ad total).
 - Supplementary audit flags a transcript as placeholder-looking by three facts: length under 100 characters, identical text repeated across posts, or a sentence of 15+ characters recurring 3 or more times within one transcript.
+- Hypotheses, exposure floor (spend >= 10000, sensitivity 5000 and 25000) and minimum group size (10) fixed before any performance metric was computed.
+- Cross-structure audit forms every hypothesis group straight from config/hypotheses.yaml, applying H2's child_on_screen != none restriction before its own filter; it computes no performance metric broken down by any group.
+- Pairwise group overlap and per-group splits (by product_form, launch month, stopped_date) are formed at the primary floor only; group sizes alone are reported across all three floors.
+- Pairwise overlap covers all 36 unordered pairs among the nine primary and exploratory hypotheses.
+- Date-and-form clustering (distinct launch_date; top launch_date x stopped_date x product_form combinations) is reported over both all ads and the primary-floor set, side by side.
+- Purchases min, median and count under 20 are reported for the primary-floor set as a whole, as a distribution and not as a per-group metric.
+- Any hypothesis group under 10 ads at the chosen floor is dropped, no exceptions.
+- The days_live offset follows stopped_date batches and is treated as a data artifact; ratio metrics do not use days_live.
+- A spend floor partly selects ads the platform kept funding, so comparisons are among surviving ads.

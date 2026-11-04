@@ -1,0 +1,5 @@
+metric,value,n_floor_total
+purchases_min,0.0,80
+purchases_median,75.5,80
+n_purchases_lt_20,4.0,80
+share_purchases_lt_20,0.05,80

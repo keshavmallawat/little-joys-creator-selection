@@ -1,0 +1,28 @@
+hypothesis_id,tier,name,column,match,value,restrict,floor,n_group,n_floor_total,share_within_floor,under_min_group_size
+H1,primary,child reacts to taste,child_role,contains,reacts_to_taste,,10000,36,80,0.45,False
+H1,primary,child reacts to taste,child_role,contains,reacts_to_taste,,5000,38,90,0.4222,False
+H1,primary,child reacts to taste,child_role,contains,reacts_to_taste,,25000,26,57,0.4561,False
+H2,primary,child in first 3s (only ads with a child),child_in_first_3s,equals,yes,child_on_screen != none,10000,35,80,0.4375,False
+H2,primary,child in first 3s (only ads with a child),child_in_first_3s,equals,yes,child_on_screen != none,5000,39,90,0.4333,False
+H2,primary,child in first 3s (only ads with a child),child_in_first_3s,equals,yes,child_on_screen != none,25000,23,57,0.4035,False
+H4,primary,hook is a question,hook_type,equals,question,,10000,19,80,0.2375,False
+H4,primary,hook is a question,hook_type,equals,question,,5000,23,90,0.2556,False
+H4,primary,hook is a question,hook_type,equals,question,,25000,16,57,0.2807,False
+H6,primary,creator is parent or caregiver,creator_type,equals,parent_or_caregiver,,10000,47,80,0.5875,False
+H6,primary,creator is parent or caregiver,creator_type,equals,parent_or_caregiver,,5000,52,90,0.5778,False
+H6,primary,creator is parent or caregiver,creator_type,equals,parent_or_caregiver,,25000,32,57,0.5614,False
+H7,primary,voiceover montage format,ad_format,equals,voiceover_montage,,10000,28,80,0.35,False
+H7,primary,voiceover montage format,ad_format,equals,voiceover_montage,,5000,33,90,0.3667,False
+H7,primary,voiceover montage format,ad_format,equals,voiceover_montage,,25000,20,57,0.3509,False
+H3,exploratory,brand named under 3s,brand_first_said,equals,under_3s,,10000,30,80,0.375,False
+H3,exploratory,brand named under 3s,brand_first_said,equals,under_3s,,5000,36,90,0.4,False
+H3,exploratory,brand named under 3s,brand_first_said,equals,under_3s,,25000,22,57,0.386,False
+H5,exploratory,hook is a story opening,hook_type,equals,story_open,,10000,17,80,0.2125,False
+H5,exploratory,hook is a story opening,hook_type,equals,story_open,,5000,18,90,0.2,False
+H5,exploratory,hook is a story opening,hook_type,equals,story_open,,25000,12,57,0.2105,False
+H8,exploratory,proof is creator testimonial,proof_used,contains,creator_testimonial,,10000,18,80,0.225,False
+H8,exploratory,proof is creator testimonial,proof_used,contains,creator_testimonial,,5000,21,90,0.2333,False
+H8,exploratory,proof is creator testimonial,proof_used,contains,creator_testimonial,,25000,13,57,0.2281,False
+H9,exploratory,single language,language_mixing,equals,single_language,,10000,16,80,0.2,False
+H9,exploratory,single language,language_mixing,equals,single_language,,5000,19,90,0.2111,False
+H9,exploratory,single language,language_mixing,equals,single_language,,25000,13,57,0.2281,False
