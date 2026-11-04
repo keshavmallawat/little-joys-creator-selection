@@ -4,7 +4,7 @@ Source: data/ads.csv (read-only); H1 and H6 specs and the spend floor from confi
 
 Primary floor: spend>=10000 (floor set n=80). H1 = child_role contains 'reacts_to_taste'; H6 = creator_type equals 'parent_or_caregiver'.
 
-Comparisons run: 4 cells x 5 per-cell metrics (pooled ROAS, median per-ad ROAS, pooled hook_rate, ctr, cvr) = **20**, plus 1 product_form breakdown of the H1out_H6in cell. Total = **21**.
+Comparisons run: 4 cells x 5 per-cell metrics (pooled ROAS, median per-ad ROAS, pooled hook_rate, ctr, cvr) = **20**, plus 3 count-only breakdowns (product_form of H1out_H6in; creator_type and product_form of H1in_H6out), which carry no performance metric. Total = **23**.
 
 ## 2x2: H1 membership x H6 membership (primary floor)
 
@@ -21,5 +21,18 @@ H1out_H6in cell n=25.
 - milk_mix_powder: n=11
 - other: n=8
 - gummies: n=6
+
+## H1in_H6out cell composition (post-hoc, counts only — no performance metrics)
+
+H1in_H6out cell n=14.
+By creator_type:
+- child_presenter: n=9
+- professional_presenter: n=2
+- multiple: n=2
+- none_visible: n=1
+By product_form:
+- milk_mix_powder: n=12
+- other: n=1
+- gummies: n=1
 
 Full detail: posthoc_h1_h6.csv.

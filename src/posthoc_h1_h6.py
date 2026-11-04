@@ -14,6 +14,10 @@ denominator. Nothing is written by hand: the H1 and H6 specs and the spend
 floor are read from config/, and group masks are formed with the shared
 helpers in src/groups.py.
 
+Alongside the 2x2 it writes counts-only composition views (n ads by
+creator_type and by product_form for individual cells) that carry no
+performance metric at all.
+
 Outputs (outputs/ads/): posthoc_h1_h6.csv, posthoc_h1_h6.md.
 """
 
@@ -128,6 +132,28 @@ def main() -> None:
             "n_scope": int(len(h1out_h6in)),
         })
 
+    # View 3: counts-only composition of the H1-in / H6-out cell. No metrics.
+    h1in_h6out = ads[cells["H1in_H6out"][0]]
+    comp = {
+        "H1in_H6out_by_creator_type":
+            h1in_h6out["creator_type"].value_counts(dropna=False),
+        "H1in_H6out_by_product_form":
+            h1in_h6out["product_form"].value_counts(dropna=False),
+    }
+    for view_name, counts in comp.items():
+        for cat, cnt in counts.items():
+            rows.append({
+                "view": view_name, "cell": "H1in_H6out",
+                "item": "(missing)" if pd.isna(cat) else str(cat),
+                "h1": "in", "h6": "out",
+                "n_ads": int(cnt),
+                "pooled_roas": "", "median_per_ad_roas": "",
+                "hook_rate": "", "hook_rate_impressions": "",
+                "ctr": "", "ctr_impressions": "",
+                "cvr": "", "cvr_link_clicks": "",
+                "n_scope": int(len(h1in_h6out)),
+            })
+
     cols = ["view", "cell", "item", "h1", "h6", "n_ads", "pooled_roas",
             "median_per_ad_roas", "hook_rate", "hook_rate_impressions",
             "ctr", "ctr_impressions", "cvr", "cvr_link_clicks", "n_scope"]
@@ -135,10 +161,13 @@ def main() -> None:
         OUT_DIR / "posthoc_h1_h6.csv", index=False
     )
 
-    # Comparison count: 4 cells x 5 per-cell metrics, plus 1 product_form split.
+    # Comparison count: 4 cells x 5 per-cell metrics, plus the count-only
+    # breakdowns (product_form of H1out_H6in; creator_type and product_form of
+    # H1in_H6out). The count-only breakdowns carry no performance metric.
     n_cells = len(cells)
     n_metrics = 5  # ROAS, median per-ad ROAS, hook_rate, ctr, cvr
     n_cell_metrics = n_cells * n_metrics
+    n_breakdowns = 1 + len(comp)
 
     # ---- Summary -----------------------------------------------------------
     line(f"# Post-hoc H1 x H6 descriptive cross ({MOTIVATION})")
@@ -154,8 +183,10 @@ def main() -> None:
     line()
     line(f"Comparisons run: {n_cells} cells x {n_metrics} per-cell metrics "
          f"(pooled ROAS, median per-ad ROAS, pooled hook_rate, ctr, cvr) = "
-         f"**{n_cell_metrics}**, plus 1 product_form breakdown of the "
-         f"H1out_H6in cell. Total = **{n_cell_metrics + 1}**.")
+         f"**{n_cell_metrics}**, plus {n_breakdowns} count-only breakdowns "
+         f"(product_form of H1out_H6in; creator_type and product_form of "
+         f"H1in_H6out), which carry no performance metric. "
+         f"Total = **{n_cell_metrics + n_breakdowns}**.")
     line()
 
     line("## 2x2: H1 membership x H6 membership (primary floor)")
@@ -179,6 +210,20 @@ def main() -> None:
     line(f"H1out_H6in cell n={len(h1out_h6in)}.")
     for form, cnt in pf.items():
         label = "(missing)" if pd.isna(form) else str(form)
+        line(f"- {label}: n={int(cnt)}")
+    line()
+
+    line("## H1in_H6out cell composition (post-hoc, counts only — no "
+         "performance metrics)")
+    line()
+    line(f"H1in_H6out cell n={len(h1in_h6out)}.")
+    line("By creator_type:")
+    for cat, cnt in comp["H1in_H6out_by_creator_type"].items():
+        label = "(missing)" if pd.isna(cat) else str(cat)
+        line(f"- {label}: n={int(cnt)}")
+    line("By product_form:")
+    for cat, cnt in comp["H1in_H6out_by_product_form"].items():
+        label = "(missing)" if pd.isna(cat) else str(cat)
         line(f"- {label}: n={int(cnt)}")
     line()
     line("Full detail: posthoc_h1_h6.csv.")

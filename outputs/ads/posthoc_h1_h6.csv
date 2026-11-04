@@ -6,3 +6,10 @@ cross_2x2,H1out_H6out,,out,out,19,1.1597141480787463,0.8541393074932713,0.285627
 H1out_H6in_by_product_form,H1out_H6in,milk_mix_powder,out,in,11,,,,,,,,,25
 H1out_H6in_by_product_form,H1out_H6in,other,out,in,8,,,,,,,,,25
 H1out_H6in_by_product_form,H1out_H6in,gummies,out,in,6,,,,,,,,,25
+H1in_H6out_by_creator_type,H1in_H6out,child_presenter,in,out,9,,,,,,,,,14
+H1in_H6out_by_creator_type,H1in_H6out,professional_presenter,in,out,2,,,,,,,,,14
+H1in_H6out_by_creator_type,H1in_H6out,multiple,in,out,2,,,,,,,,,14
+H1in_H6out_by_creator_type,H1in_H6out,none_visible,in,out,1,,,,,,,,,14
+H1in_H6out_by_product_form,H1in_H6out,milk_mix_powder,in,out,12,,,,,,,,,14
+H1in_H6out_by_product_form,H1in_H6out,other,in,out,1,,,,,,,,,14
+H1in_H6out_by_product_form,H1in_H6out,gummies,in,out,1,,,,,,,,,14

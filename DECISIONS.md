@@ -29,3 +29,4 @@
 - Structural S1 (three-way child status) and S2 (H8 within H6) reported descriptively at the primary floor; floor-set product_form mix and single-biggest-ad spend share reported for the primary floor.
 - Total comparison count reported up front in the performance summary.
 - Post-hoc (not pre-registered) descriptive 2x2 of H1 membership x H6 membership at the primary floor, with each cell's pooled ROAS, median per-ad ROAS and pooled hook_rate/ctr/cvr (n beside every rate), plus a product_form split of the H1-out/H6-in cell; motivated by the 22-ad H1/H6 overlap in audit_cross_pair_overlap.csv; descriptive only, no tiers or confidence intervals.
+- Post-hoc counts-only composition of the H1-in/H6-out cell at the primary floor: n ads by creator_type and by product_form, with no performance metric attached; descriptive only.
