@@ -1,0 +1,10 @@
+structure,item,side,n_ads,pooled_roas,value,n_scope
+S1_child_status,no_child,,28,0.983894462452301,,80
+S1_child_status,child_present_not_reacting,,16,0.8537203118081391,,80
+S1_child_status,child_reacts,,36,2.2234887772230114,,80
+S2_H8_within_H6,H8_in_within_H6,,18,1.0016223600281524,,47
+S2_H8_within_H6,H8_out_within_H6,,29,0.8738196198951289,,47
+floor_product_form_mix,milk_mix_powder,,43,,0.5375,80
+floor_product_form_mix,gummies,,19,,0.2375,80
+floor_product_form_mix,other,,18,,0.225,80
+floor_spend_concentration,LJ-004,biggest_spend_ad,80,,0.0921,80

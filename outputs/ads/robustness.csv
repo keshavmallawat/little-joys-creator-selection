@@ -1,0 +1,46 @@
+hypothesis_id,tier_class,check,result,reference_sign,n_evaluable,n_not_evaluable,detail
+H1,primary,same_sign_at_all_three_floors,pass,1,3.0,0.0,spend>=10000: sign=+1; spend>=5000: sign=+1; spend>=25000: sign=+1
+H1,primary,median_per_ad_roas_diff_same_sign,pass,1,,,"median_in=1.3338, median_out=0.8831, median_diff sign=+1, reference=+1"
+H1,primary,drop_highest_spend_ad_of_each_group,pass,1,2.0,0.0,in:same; out:same
+H1,primary,leave_one_stop_date_out,pass,1,8.0,0.0,"8 distinct stopped_date(s); 8 same, 0 flipped, 0 not evaluable"
+H1,primary,product_form_strata,pass,1,3.0,0.0,"evaluable(>=5 both)=3, binding(>=10 both)=1, disagree=0; gummies: in=5, out=14, sign=-1; milk_mix_powder: in=23, out=20, sign=+1; other: in=8, out=10, sign=+1"
+H2,primary,same_sign_at_all_three_floors,pass,1,3.0,0.0,spend>=10000: sign=+1; spend>=5000: sign=+1; spend>=25000: sign=+1
+H2,primary,median_per_ad_roas_diff_same_sign,fail,1,,,"median_in=1.0205, median_out=1.4571, median_diff sign=-1, reference=+1"
+H2,primary,drop_highest_spend_ad_of_each_group,fail,1,2.0,0.0,in:flip; out:same
+H2,primary,leave_one_stop_date_out,fail,1,8.0,0.0,"8 distinct stopped_date(s); 7 same, 1 flipped, 0 not evaluable"
+H2,primary,product_form_strata,pass,1,2.0,0.0,"evaluable(>=5 both)=2, binding(>=10 both)=0, disagree=0; milk_mix_powder: in=23, out=8, sign=+1; other: in=6, out=6, sign=-1"
+H4,primary,same_sign_at_all_three_floors,pass,-1,3.0,0.0,spend>=10000: sign=-1; spend>=5000: sign=-1; spend>=25000: sign=-1
+H4,primary,median_per_ad_roas_diff_same_sign,fail,-1,,,"median_in=1.0718, median_out=0.9698, median_diff sign=+1, reference=-1"
+H4,primary,drop_highest_spend_ad_of_each_group,fail,-1,2.0,0.0,in:same; out:flip
+H4,primary,leave_one_stop_date_out,fail,-1,8.0,0.0,"8 distinct stopped_date(s); 7 same, 1 flipped, 0 not evaluable"
+H4,primary,product_form_strata,pass,-1,2.0,0.0,"evaluable(>=5 both)=2, binding(>=10 both)=0, disagree=0; gummies: in=7, out=12, sign=+1; milk_mix_powder: in=8, out=35, sign=-1"
+H6,primary,same_sign_at_all_three_floors,pass,-1,3.0,0.0,spend>=10000: sign=-1; spend>=5000: sign=-1; spend>=25000: sign=-1
+H6,primary,median_per_ad_roas_diff_same_sign,pass,-1,,,"median_in=0.9127, median_out=1.0829, median_diff sign=-1, reference=-1"
+H6,primary,drop_highest_spend_ad_of_each_group,pass,-1,2.0,0.0,in:same; out:same
+H6,primary,leave_one_stop_date_out,pass,-1,8.0,0.0,"8 distinct stopped_date(s); 8 same, 0 flipped, 0 not evaluable"
+H6,primary,product_form_strata,pass,-1,2.0,0.0,"evaluable(>=5 both)=2, binding(>=10 both)=1, disagree=0; gummies: in=10, out=9, sign=-1; milk_mix_powder: in=22, out=21, sign=-1"
+H7,primary,same_sign_at_all_three_floors,pass,-1,3.0,0.0,spend>=10000: sign=-1; spend>=5000: sign=-1; spend>=25000: sign=-1
+H7,primary,median_per_ad_roas_diff_same_sign,fail,-1,,,"median_in=1.0461, median_out=0.9853, median_diff sign=+1, reference=-1"
+H7,primary,drop_highest_spend_ad_of_each_group,pass,-1,2.0,0.0,in:same; out:same
+H7,primary,leave_one_stop_date_out,pass,-1,8.0,0.0,"8 distinct stopped_date(s); 8 same, 0 flipped, 0 not evaluable"
+H7,primary,product_form_strata,pass,-1,2.0,0.0,"evaluable(>=5 both)=2, binding(>=10 both)=1, disagree=0; gummies: in=8, out=11, sign=+1; milk_mix_powder: in=16, out=27, sign=-1"
+H3,exploratory,same_sign_at_all_three_floors,pass,1,3.0,0.0,spend>=10000: sign=+1; spend>=5000: sign=+1; spend>=25000: sign=+1
+H3,exploratory,median_per_ad_roas_diff_same_sign,pass,1,,,"median_in=1.1567, median_out=0.9113, median_diff sign=+1, reference=+1"
+H3,exploratory,drop_highest_spend_ad_of_each_group,pass,1,2.0,0.0,in:same; out:same
+H3,exploratory,leave_one_stop_date_out,pass,1,8.0,0.0,"8 distinct stopped_date(s); 8 same, 0 flipped, 0 not evaluable"
+H3,exploratory,product_form_strata,pass,1,3.0,0.0,"evaluable(>=5 both)=3, binding(>=10 both)=1, disagree=0; gummies: in=9, out=10, sign=+1; milk_mix_powder: in=16, out=27, sign=+1; other: in=5, out=13, sign=+1"
+H5,exploratory,same_sign_at_all_three_floors,pass,1,3.0,0.0,spend>=10000: sign=+1; spend>=5000: sign=+1; spend>=25000: sign=+1
+H5,exploratory,median_per_ad_roas_diff_same_sign,fail,1,,,"median_in=0.7839, median_out=1.0829, median_diff sign=-1, reference=+1"
+H5,exploratory,drop_highest_spend_ad_of_each_group,fail,1,2.0,0.0,in:flip; out:same
+H5,exploratory,leave_one_stop_date_out,fail,1,8.0,0.0,"8 distinct stopped_date(s); 7 same, 1 flipped, 0 not evaluable"
+H5,exploratory,product_form_strata,pass,1,2.0,0.0,"evaluable(>=5 both)=2, binding(>=10 both)=0, disagree=0; milk_mix_powder: in=9, out=34, sign=+1; other: in=5, out=13, sign=-1"
+H8,exploratory,same_sign_at_all_three_floors,pass,-1,3.0,0.0,spend>=10000: sign=-1; spend>=5000: sign=-1; spend>=25000: sign=-1
+H8,exploratory,median_per_ad_roas_diff_same_sign,pass,-1,,,"median_in=0.9154, median_out=1.0338, median_diff sign=-1, reference=-1"
+H8,exploratory,drop_highest_spend_ad_of_each_group,pass,-1,2.0,0.0,in:same; out:same
+H8,exploratory,leave_one_stop_date_out,pass,-1,8.0,0.0,"8 distinct stopped_date(s); 8 same, 0 flipped, 0 not evaluable"
+H8,exploratory,product_form_strata,pass,-1,2.0,0.0,"evaluable(>=5 both)=2, binding(>=10 both)=0, disagree=0; milk_mix_powder: in=8, out=35, sign=-1; other: in=8, out=10, sign=-1"
+H9,exploratory,same_sign_at_all_three_floors,pass,1,3.0,0.0,spend>=10000: sign=+1; spend>=5000: sign=+1; spend>=25000: sign=+1
+H9,exploratory,median_per_ad_roas_diff_same_sign,pass,1,,,"median_in=1.4223, median_out=0.9247, median_diff sign=+1, reference=+1"
+H9,exploratory,drop_highest_spend_ad_of_each_group,fail,1,2.0,0.0,in:flip; out:same
+H9,exploratory,leave_one_stop_date_out,fail,1,8.0,0.0,"8 distinct stopped_date(s); 7 same, 1 flipped, 0 not evaluable"
+H9,exploratory,product_form_strata,pass,1,1.0,0.0,"evaluable(>=5 both)=1, binding(>=10 both)=1, disagree=0; milk_mix_powder: in=10, out=33, sign=+1"
