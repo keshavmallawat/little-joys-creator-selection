@@ -1,0 +1,15 @@
+match_rules:
+  contains: split cell on ";" and check the atomic label
+  equals: whole cell equals value
+primary:
+  H1: {name: child reacts to taste, column: child_role, match: contains, value: reacts_to_taste}
+  H2: {name: child in first 3s (only ads with a child), column: child_in_first_3s, match: equals, value: "yes", restrict: "child_on_screen != none"}
+  H4: {name: hook is a question, column: hook_type, match: equals, value: question}
+  H6: {name: creator is parent or caregiver, column: creator_type, match: equals, value: parent_or_caregiver}
+  H7: {name: voiceover montage format, column: ad_format, match: equals, value: voiceover_montage}
+exploratory:
+  H3: {name: brand named under 3s, column: brand_first_said, match: equals, value: under_3s}
+  H5: {name: hook is a story opening, column: hook_type, match: equals, value: story_open}
+  H8: {name: proof is creator testimonial, column: proof_used, match: contains, value: creator_testimonial}
+  H9: {name: single language, column: language_mixing, match: equals, value: single_language}
+rule: any group under min_group_size ads at the chosen floor is dropped, no exceptions

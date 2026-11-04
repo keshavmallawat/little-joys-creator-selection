@@ -1,0 +1,165 @@
+column,value,n_ads,n_ads_spend_ge_5000,low_n
+child_on_screen,one,52,48,False
+child_on_screen,none,37,32,False
+child_on_screen,multiple,11,10,False
+child_in_first_3s,no,59,51,False
+child_in_first_3s,yes,41,39,False
+child_role,none,37,32,False
+child_role,speaks; consumes_product; reacts_to_taste,19,18,False
+child_role,consumes_product; reacts_to_taste,8,8,True
+child_role,on_screen_silent; consumes_product,8,6,True
+child_role,on_screen_silent,5,4,True
+child_role,on_screen_silent; consumes_product; reacts_to_taste,4,4,True
+child_role,consumes_product; reacts_to_taste; speaks,4,4,True
+child_role,consumes_product,4,3,True
+child_role,consumes_product; reacts_to_taste; on_screen_silent,3,3,True
+child_role,(missing),2,2,True
+child_role,consumes_product; on_screen_silent,2,2,True
+child_role,consumes_product; shows_result,1,1,True
+child_role,on_screen_silent; shows_result,1,1,True
+child_role,speaks; consumes_product,1,1,True
+child_role,speaks; reacts_to_taste,1,1,True
+brand_said_aloud,yes,70,64,False
+brand_said_aloud,no,30,26,False
+brand_first_said,under_3s,40,36,False
+brand_first_said,15_to_30s,27,25,False
+brand_first_said,5_to_10s,15,13,False
+brand_first_said,10_to_15s,7,7,True
+brand_first_said,3_to_5s,5,4,True
+brand_first_said,over_30s,4,3,True
+brand_first_said,(missing),2,2,True
+hook_type,question,28,23,False
+hook_type,story_open,22,18,False
+hook_type,problem_statement,14,14,False
+hook_type,visual_action,7,7,True
+hook_type,educational_explainer,6,6,True
+hook_type,personal_testimony,6,6,True
+hook_type,direct_product,6,5,True
+hook_type,pattern_interrupt,3,3,True
+hook_type,bold_claim,3,3,True
+hook_type,result_reveal,3,3,True
+hook_type,(missing),2,2,True
+creator_type,parent_or_caregiver,57,52,False
+creator_type,none_visible,15,14,False
+creator_type,multiple,10,7,False
+creator_type,child_presenter,9,9,True
+creator_type,professional_presenter,5,5,True
+creator_type,peer_reviewer,2,2,True
+creator_type,food_or_chef,1,0,True
+creator_type,medical_professional,1,1,True
+language_mixing,occasional_borrowing,54,50,False
+language_mixing,single_language,25,19,False
+language_mixing,sentence_level_switching,12,12,False
+language_mixing,none,6,6,True
+language_mixing,constant_switching,3,3,True
+ad_format,voiceover_montage,36,33,False
+ad_format,explainer_to_camera,25,22,False
+ad_format,skit,15,13,False
+ad_format,child_led,8,8,True
+ad_format,silent_brand_film,6,6,True
+ad_format,other,5,5,True
+ad_format,podcast_interview,3,1,True
+ad_format,(missing),2,2,True
+proof_used,ingredient_potency,6,6,True
+proof_used,ingredient_dosage; texture_demonstration,5,5,True
+proof_used,none,5,5,True
+proof_used,creator_testimonial; ingredient_potency,4,4,True
+proof_used,ingredient_dosage; clinical_specifications,4,3,True
+proof_used,ingredient_potency; texture_demonstration,3,3,True
+proof_used,ingredient_dosage; creator_testimonial,3,2,True
+proof_used,ingredient_dosage,2,1,True
+proof_used,texture_demonstration; ingredient_potency; child_visible_result,2,2,True
+proof_used,texture_demonstration,2,2,True
+proof_used,ingredient_potency; clinical_specifications,2,1,True
+proof_used,texture_demonstration; ingredient_dosage,2,2,True
+proof_used,creator_testimonial; ingredient_dosage; texture_demonstration,2,2,True
+proof_used,texture_demonstration; creator_testimonial,2,2,True
+proof_used,ingredient_dosage; ingredient_potency,2,1,True
+proof_used,ingredient_potency; scientific_lab_visuals,2,2,True
+proof_used,scientific_lab_visuals; lab_tested_certified,2,2,True
+proof_used,creator_testimonial; texture_demonstration,2,2,True
+proof_used,customer_review,2,2,True
+proof_used,customer_review; texture_demonstration,2,2,True
+proof_used,lab_tested_certified,2,2,True
+proof_used,ingredient_dosage; texture_sensory_visuals,2,2,True
+proof_used,clinical_specifications; ingredient_potency,2,2,True
+proof_used,creator_testimonial,2,1,True
+proof_used,ingredient_dosage; data_statistics,2,2,True
+proof_used,child_visible_result; texture_demonstration,2,1,True
+proof_used,ingredient_potency; texture_sensory_visuals,2,2,True
+proof_used,ingredient_dosage; other,1,1,True
+proof_used,texture_demonstration; ingredient_dosage; child_visible_result,1,1,True
+proof_used,scientific_lab_visuals; ingredient_dosage,1,1,True
+proof_used,child_visible_result; ingredient_potency,1,1,True
+proof_used,scientific_lab_visuals,1,1,True
+proof_used,ingredient_potency; data_statistics,1,1,True
+proof_used,creator_testimonial; child_visible_result; texture_demonstration,1,1,True
+proof_used,data_statistics; ingredient_potency; creator_testimonial,1,1,True
+proof_used,ingredient_dosage; texture_demonstration; creator_testimonial,1,1,True
+proof_used,clinical_specifications,1,0,True
+proof_used,texture_sensory_visuals,1,1,True
+proof_used,creator_testimonial; ingredient_dosage; child_visible_result,1,1,True
+proof_used,texture_sensory_visuals; texture_demonstration,1,0,True
+proof_used,scientific_lab_visuals; lab_tested_certified; clinical_specifications,1,1,True
+proof_used,creator_testimonial; clinical_specifications,1,1,True
+proof_used,creator_testimonial; child_visible_result; ingredient_potency,1,1,True
+proof_used,customer_review; child_visible_result,1,1,True
+proof_used,data_statistics,1,1,True
+proof_used,customer_review; child_visible_result; ingredient_dosage,1,1,True
+proof_used,expert_endorsement; ingredient_potency,1,0,True
+proof_used,texture_demonstration; ingredient_potency,1,1,True
+proof_used,texture_sensory_visuals; creator_testimonial,1,1,True
+proof_used,ingredient_dosage; scientific_lab_visuals,1,1,True
+proof_used,texture_demonstration; texture_sensory_visuals,1,1,True
+proof_used,lab_tested_certified; ingredient_dosage,1,1,True
+proof_used,creator_testimonial; ingredient_dosage; data_statistics,1,1,True
+proof_used,texture_sensory_visuals; ingredient_potency,1,1,True
+proof_used,ingredient_potency; child_visible_result,1,1,True
+proof_used,child_visible_result; ingredient_dosage,1,1,True
+proof_used,texture_demonstration; child_visible_result,1,1,True
+cta_type,buy_now,58,54,False
+cta_type,none,32,29,False
+cta_type,social_interface_referral,3,3,True
+cta_type,comment_for_link,3,1,True
+cta_type,visit_store,1,1,True
+cta_type,other,1,1,True
+cta_type,comment,1,0,True
+cta_type,learn_more,1,1,True
+offer,none,97,87,False
+offer,bundle,3,3,True
+product_form,milk_mix_powder,51,48,False
+product_form,other,26,22,False
+product_form,gummies,23,20,False
+demo_shown,mixing_prep; child_consuming,21,19,False
+demo_shown,product_feature_demo,13,10,False
+demo_shown,none,11,10,False
+demo_shown,mixing_prep; child_consuming; taste_test,5,5,True
+demo_shown,mixing_prep; product_feature_demo,4,4,True
+demo_shown,mixing_prep; taste_test; child_consuming,4,4,True
+demo_shown,taste_test; child_consuming,4,4,True
+demo_shown,child_consuming,3,3,True
+demo_shown,live_use; product_feature_demo,3,3,True
+demo_shown,product_feature_demo; child_consuming,3,2,True
+demo_shown,live_use; child_consuming; taste_test,2,2,True
+demo_shown,live_use,2,1,True
+demo_shown,mixing_prep,2,2,True
+demo_shown,mixing_prep; live_use,2,2,True
+demo_shown,taste_test; child_consuming; comparison,2,2,True
+demo_shown,tutorial; live_use,2,1,True
+demo_shown,live_use; child_consuming,1,1,True
+demo_shown,mixing_prep; tutorial; taste_test; child_consuming,1,1,True
+demo_shown,mixing_prep; tutorial; live_use,1,1,True
+demo_shown,live_use; mixing_prep,1,1,True
+demo_shown,child_consuming; product_feature_demo,1,1,True
+demo_shown,child_consuming; taste_test,1,1,True
+demo_shown,child_consuming; taste_test; live_use,1,0,True
+demo_shown,mixing_prep; child_consuming; product_feature_demo,1,1,True
+demo_shown,live_use; taste_test,1,1,True
+demo_shown,taste_test; child_consuming; live_use,1,1,True
+demo_shown,child_consuming; live_use,1,1,True
+demo_shown,taste_test; child_consuming; product_feature_demo,1,1,True
+demo_shown,mixing_prep; child_consuming; tutorial,1,1,True
+demo_shown,mixing_prep; taste_test,1,1,True
+demo_shown,mixing_prep; tutorial; live_use; product_feature_demo,1,1,True
+demo_shown,child_consuming; mixing_prep,1,1,True
+demo_shown,tutorial; live_use; mixing_prep; taste_test; child_consuming,1,1,True

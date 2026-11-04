@@ -1,0 +1,9 @@
+creator_id,post_url,flag,detail
+CR-02,https://www.instagram.com/p/DeXAWlGMzQp/,very_short,length=59 (< 100)
+CR-05,https://www.instagram.com/p/Dd_uoSYzAaE/,repeated_within_post,a sentence recurs 5x: 'Happy birthday to you'
+CR-06,https://www.instagram.com/p/Ddx0GIKty_b/,repeated_within_post,a sentence recurs 8x: 'Mara tame shu thav'
+CR-09,https://www.instagram.com/p/DY4fG1lNRLT/,very_short,length=84 (< 100)
+CR-12,https://www.instagram.com/p/DdMFZCvTFj9/,very_short,length=68 (< 100)
+CR-14,https://www.instagram.com/p/Dd_4OBHuiXw/,very_short,length=48 (< 100)
+CR-20,https://www.instagram.com/p/DeIwMiYhtVN/,repeated_within_post,a sentence recurs 3x: 'Utti peace undali'
+CR-20,https://www.instagram.com/p/Dd-hpXxBSEt/,repeated_within_post,a sentence recurs 4x: 'That simple as that'

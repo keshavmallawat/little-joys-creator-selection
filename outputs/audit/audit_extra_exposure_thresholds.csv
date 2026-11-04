@@ -1,0 +1,8 @@
+metric,threshold,n_at_or_above,share_at_or_above,n_total
+purchases,5,96,0.96,100
+purchases,10,90,0.9,100
+purchases,20,78,0.78,100
+purchases,50,53,0.53,100
+link_clicks,100,98,0.98,100
+link_clicks,500,81,0.81,100
+link_clicks,1000,70,0.7,100

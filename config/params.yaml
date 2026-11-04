@@ -1,0 +1,4 @@
+spend_floor_primary: 10000
+spend_floor_sensitivity: [5000, 25000]
+min_group_size: 10
+seed: 42
