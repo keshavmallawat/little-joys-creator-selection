@@ -2,11 +2,11 @@ AI-drafted, to be reviewed and edited by Keshav.
 
 # Creator directions (draft)
 
-Every number below is tagged with the `claim_id` it comes from (in claims.csv or manual_checks.csv) with its n. Product facts are quoted only from Little Joys' own ad text (ads.csv `claims_made` / `main_benefit`) and marked "confirm with legal". Creator descriptions are drawn only from post captions and the `what_stands_out` notes in the reading pack — no post has been watched. Performance figures are synthetic and labels are AI-generated and imperfect; nothing here is causal, only associational.
+Every number below is tagged with the `claim_id` it comes from (in claims.csv or manual_checks.csv) with its n. Product facts are quoted only from Little Joys' own ad text (ads.csv `claims_made` / `main_benefit`) and marked "confirm with legal". Creator descriptions are drawn only from post captions and the `what_stands_out` notes in the reading pack — no post has been watched. Performance figures are simulated numbers supplied by Galvor (not Little Joys' real results) and are treated here as the brand's own ad export; the labels were added by Galvor's AI system and are imperfect. Nothing here is causal, only associational.
 
 ## Portfolio summary
 
-These five creators are a spread of roles, not a ranking: an ad-integrator who already folds brands into polished family content (CR-13), two clinical voices for authority and reach into health-minded parents (CR-03, CR-01), a child-led family vlog where the child is on camera throughout (CR-11), and a milk-category creator already fluent in milk-mix nutrition messaging (CR-19). The pre-registered scoring in creator_scores.csv remains the primary result; this particular five is a human judgement made after the post-hoc validity checks. Two caveats travel with the whole set: audience demographics exist for only a few creators (limit_audience_coverage: 3 of 20, n=20), and a hand check found the "child + product" example posts rarely show a child actually eating or reacting to food (proxy_precision: 3 of 24, 12.5%, n=24). Read the per-creator "confidence" line with both in mind.
+These five creators are a spread of roles, not a ranking: an ad-integrator who already folds brands into polished family content (CR-13), two clinical voices for authority and reach into health-minded parents (CR-03, CR-01), a family vlog with a child in every window post (CR-11), and a milk-category creator already fluent in milk-mix nutrition messaging (CR-19). The pre-registered scoring in creator_scores.csv remains the primary result; this particular five is a human judgement made after the post-hoc validity checks. Two caveats travel with the whole set: audience demographics exist for only a few creators (limit_audience_coverage: 3 of 20, n=20), and a hand check found the "child + product" example posts rarely show a child actually eating or reacting to food (proxy_precision: 3 of 24, 12.5%, n=24). Read the per-creator "confidence" line with both in mind.
 
 ### Backups (in order)
 
@@ -41,7 +41,7 @@ A soft-focus, domestic "mom-hack" film that places a Little Joys product inside 
 
 **5. Three sample lines** (Little Joys facts only; confirm with legal)
 - "Made with ragi, bajra, almonds and walnuts, sweetened with jaggery and dates." (source: ads.csv `claims_made` — confirm with legal)
-- "9g protein in 2 scoops with milk." (source: ads.csv `claims_made`, Nutrimix 7+ — confirm with legal)
+- "9g protein in 2 scoops with milk." (source: ads.csv `claims_made`, LJ-009 Nutrimix 7+; other ads state 5g per 2 scoops (LJ-029, LJ-043, LJ-095), so confirm the figure with legal)
 - "23 essential vitamins and minerals." (source: ads.csv `claims_made` — confirm with legal)
 
 **6. Avoid**
@@ -53,9 +53,11 @@ A soft-focus, domestic "mom-hack" film that places a Little Joys product inside 
 Her shown brands are not direct child-nutrition competitors (cr_CR-13_brands: Ariel, Aretto, Bare Anatomy, Johnson's Baby, Prega News, …, n=15). Low conflict risk. Suggestion for the manager: a standard category-exclusivity clause for the campaign window covering kids' nutrition/health-mix brands.
 
 **8. Primary metric + test**
-Watch post-click purchase conversion (purchases ÷ link clicks). Simple test: hold CR-13 fixed, run two cuts of the same brief — brand-named-in-first-3s on vs off — and compare post-click purchase conversion. No cost metrics, since there is no pricing data (limit_pricing: 0 pricing columns found, n/a). Ad-level purchase-conversion gap figure: [MISSING: per-hypothesis CVR not in claims.csv].
+Watch post-click purchase conversion (purchases ÷ link clicks). Simple test: hold CR-13 fixed, run two cuts of the same brief — brand-named-in-first-3s on vs off — and compare post-click purchase conversion. No cost metrics, since there is no pricing data (limit_pricing: 0 pricing columns found, n/a). Ad-level purchase-conversion gap figure: ads H1 and H3 (ads_H1_cvr_in: 0.0407, n=265704 link clicks; ads_H1_cvr_out: 0.0228, n=255356 link clicks; ads_H3_cvr_in: 0.0462, n=186596 link clicks; ads_H3_cvr_out: 0.0240, n=334464 link clicks).
 
-**10. Confidence: Medium.** Her standing is stable across resampling (cr_CR-13_bootstrap_top5: 83.5%, n=200) and survives removing link posts (cr_CR-13_rank_excl_link: 2); the main uncertainty is her very low current food-feeding content (cr_CR-13_food_term_share: 5.0%, n=20), plus absent audience data (cr_CR-13_flags: no_audience_data) and synthetic performance figures.
+**9. Legal:** not flagged in the data; confirm all claims with legal.
+
+**10. Confidence: Medium.** Her standing is stable across resampling (cr_CR-13_bootstrap_top5: 83.5%, n=200) and survives removing link posts (cr_CR-13_rank_excl_link: 2); the main uncertainty is her very low current food-feeding content (cr_CR-13_food_term_share: 5.0%, n=20), plus absent audience data (cr_CR-13_flags: no_audience_data).
 
 ---
 
@@ -85,7 +87,7 @@ A calm clinical explainer that treats the product as one option inside a balance
 **5. Three sample lines** (Little Joys facts only; confirm with legal)
 - "Made with millets and dry fruits, sweetened with jaggery and dates — no refined sugar." (source: ads.csv `claims_made` — confirm with legal)
 - "1 scoop (15g) contains 12g plant protein from pea, brown rice and soy; roti taste stays unchanged." (source: ads.csv `claims_made` — confirm with legal)
-- Benefit framing: ingredient-led / overall-growth (source: ads.csv `main_benefit` — confirm with legal).
+- "No added sugar, no preservatives." (source: ads.csv `claims_made`, e.g. LJ-036 — confirm with legal)
 
 **6. Avoid**
 - His stated foreign notes: influencer transitions, casual slang, generic-ad scripts with no medical context.
@@ -96,7 +98,7 @@ A calm clinical explainer that treats the product as one option inside a balance
 He has shown a direct category competitor (cr_CR-03_brands: Areoveda, Little Tummys, Troovy, …, n=5 — Troovy is a kids' nutrition mix). Conflict risk is real. Suggestion for the manager: an exclusivity clause excluding competing kids' nutrition-mix brands (e.g. Troovy) for the campaign window and a cool-off period — a suggestion to weigh, not a rule.
 
 **8. Primary metric + test**
-Post-click purchase conversion (purchases ÷ link clicks). Test: hold CR-03 fixed and compare an "ingredient checklist" cut vs a "one-product-in-context" cut on post-click purchase conversion. No cost metrics (limit_pricing: 0 pricing columns). Ad-level gap: [MISSING: per-hypothesis CVR not in claims.csv].
+Post-click purchase conversion (purchases ÷ link clicks). Test: hold CR-03 fixed and compare an "ingredient checklist" cut vs a "one-product-in-context" cut on post-click purchase conversion. No cost metrics (limit_pricing: 0 pricing columns). Ad-level gap: ads H1 and H3 (ads_H1_cvr_in: 0.0407, n=265704 link clicks; ads_H1_cvr_out: 0.0228, n=255356 link clicks; ads_H3_cvr_in: 0.0462, n=186596 link clicks; ads_H3_cvr_out: 0.0240, n=334464 link clicks).
 
 **9. Legal**
 CR-03 is flagged for legal review (cr_CR-03_flags: no_audience_data, legal_review, n=2). No medical claims, no health-outcome or efficacy claims, no "doctor recommends for [condition]" framing. Keep product language to ingredients and general benefit wording, and route the script through legal before shoot.
@@ -105,10 +107,10 @@ CR-03 is flagged for legal review (cr_CR-03_flags: no_audience_data, legal_revie
 
 ---
 
-## CR-11 — raja_choudhary04 (child-led family vlog)
+## CR-11 — raja_choudhary04 (family vlog)
 
 **1. Role and why chosen**
-- Child is on camera in every window post and feeding content is present (cr_CR-11_food_term_share: 25.0%, n=20), a strong fit for a milk-mix "child tastes it" story.
+- A child appears in every window post (children_on_camera: 20 of 20, reading_pack.md) and feeding content is present (cr_CR-11_food_term_share: 25.0%, n=20), a plausible fit for a milk-mix "child tastes it" story; a child appearing is not the same as a child tasting (proxy_precision: 3 of 24, n=24).
 - No comment-for-link posts in the window (cr_CR-11_link_request_share: 0.0%, n=20).
 - Moderately sponsored (cr_CR-11_sponsored_share: 35.0%, n=20), so brand integration is familiar without being saturated.
 
@@ -129,8 +131,8 @@ A candid mini-vlog where the product enters a real moment of the child's day. Hi
 5. (40–45s) Back to play; soft CTA, no link-bait.
 
 **5. Three sample lines** (Little Joys facts only; confirm with legal)
-- "Superhero-style taste, parent-approved nutrition." (adapt from ads.csv `main_benefit`: taste / overall_growth — confirm with legal)
-- "9g protein in 2 scoops with milk." (source: ads.csv `claims_made`, Nutrimix 7+ — confirm with legal)
+- "Made with millets and dry fruits." (source: ads.csv `claims_made` — confirm with legal)
+- "9g protein in 2 scoops with milk." (source: ads.csv `claims_made`, LJ-009 Nutrimix 7+; other ads state 5g per 2 scoops (LJ-029, LJ-043, LJ-095), so confirm the figure with legal)
 - "Sweetened with jaggery and dates, no refined sugar." (source: ads.csv `claims_made` — confirm with legal)
 
 **6. Avoid**
@@ -142,9 +144,11 @@ A candid mini-vlog where the product enters a real moment of the child's day. Hi
 He has shown two direct milk/nutrition competitors (cr_CR-11_brands: Gritzo, Troovy Foods, …, n=14). Conflict risk is high. Suggestion for the manager: a firm exclusivity clause excluding kids'-milk/nutrition brands (Gritzo, Troovy and peers) for the campaign and a cool-off window — a suggestion to decide on, given he has run both recently.
 
 **8. Primary metric + test**
-Post-click purchase conversion (purchases ÷ link clicks). Test: hold CR-11 fixed and compare "child tastes and reacts" beat on vs off, on post-click purchase conversion. No cost metrics (limit_pricing: 0 pricing columns). Ad-level gap: [MISSING: per-hypothesis CVR not in claims.csv].
+Post-click purchase conversion (purchases ÷ link clicks). Test: hold CR-11 fixed and compare "child tastes and reacts" beat on vs off, on post-click purchase conversion. No cost metrics (limit_pricing: 0 pricing columns). Ad-level gap: ads H1 and H3 (ads_H1_cvr_in: 0.0407, n=265704 link clicks; ads_H1_cvr_out: 0.0228, n=255356 link clicks; ads_H3_cvr_in: 0.0462, n=186596 link clicks; ads_H3_cvr_out: 0.0240, n=334464 link clicks).
 
-**10. Confidence: Low–Medium.** Strong role fit (child on camera throughout; cr_CR-11_food_term_share: 25.0%, n=20) and no link mechanics; the main uncertainty is weak standing in resampling (cr_CR-11_bootstrap_top5: 11.5%, n=200), absent audience data, and synthetic performance figures.
+**9. Legal:** not flagged in the data; confirm all claims with legal.
+
+**10. Confidence: Low–Medium.** Role fit (a child in every window post; cr_CR-11_food_term_share: 25.0%, n=20) and no link mechanics; the main uncertainty is weak standing in resampling (cr_CR-11_bootstrap_top5: 11.5%, n=200), and absent audience data.
 
 ---
 
@@ -174,7 +178,7 @@ A split-screen doctor explainer in Hindi with English product/medical terms, tre
 **5. Three sample lines** (Little Joys facts only; confirm with legal)
 - "Sweetened only with jaggery and dates — no refined sugar, no artificial sweeteners." (source: ads.csv `claims_made` — confirm with legal)
 - "12g plant protein per scoop; roti taste stays unchanged." (source: ads.csv `claims_made` — confirm with legal)
-- Benefit framing: ingredient-led (source: ads.csv `main_benefit` — confirm with legal).
+- "Specially made for children; can be easily mixed into idli, dosa or roti." (source: ads.csv `claims_made`, LJ-012 — confirm with legal)
 
 **6. Avoid**
 - Her stated foreign notes: studio lighting, scripted sales pitches lacking medical context, English-only audio.
@@ -185,12 +189,12 @@ A split-screen doctor explainer in Hindi with English product/medical terms, tre
 Her shown brands are mostly pharma/skincare, not direct LJ-category competitors (cr_CR-01_brands: Calpol, Meftal, Carepure, Chupa Chups, …, n=10). Moderate-to-low category conflict. Suggestion for the manager: category-exclusivity for kids' nutrition-mix brands during the window, and confirm no pharma conflict with any medical disclaimer she runs.
 
 **8. Primary metric + test**
-Post-click purchase conversion (purchases ÷ link clicks). Test: hold CR-01 fixed and compare "ingredient explainer" vs "label-check checklist" cuts on post-click purchase conversion. No cost metrics (limit_pricing: 0 pricing columns). Ad-level gap: [MISSING: per-hypothesis CVR not in claims.csv].
+Post-click purchase conversion (purchases ÷ link clicks). Test: hold CR-01 fixed and compare "ingredient explainer" vs "label-check checklist" cuts on post-click purchase conversion. No cost metrics (limit_pricing: 0 pricing columns). Ad-level gap: ads H1 and H3 (ads_H1_cvr_in: 0.0407, n=265704 link clicks; ads_H1_cvr_out: 0.0228, n=255356 link clicks; ads_H3_cvr_in: 0.0462, n=186596 link clicks; ads_H3_cvr_out: 0.0240, n=334464 link clicks).
 
 **9. Legal**
 CR-01 is flagged for legal review (cr_CR-01_flags: no_audience_data, legal_review, n=2). No medical, diagnostic, or health-outcome claims; no "pediatrician-recommended for [condition]" framing. Keep to ingredients and general benefit language, and clear the script with legal before shoot.
 
-**10. Confidence: Medium.** Good food/feeding fit (cr_CR-01_food_term_share: 30.0%, n=20) and she improves without link posts (cr_CR-01_rank_excl_link: 4, n=20); the main uncertainty is the legal-review requirement, absent audience data, modest resampling standing (cr_CR-01_bootstrap_top5: 28.5%, n=200), and synthetic performance figures.
+**10. Confidence: Medium.** Good food/feeding fit (cr_CR-01_food_term_share: 30.0%, n=20) and she improves without link posts (cr_CR-01_rank_excl_link: 4, n=20); the main uncertainty is the legal-review requirement, absent audience data, and modest resampling standing (cr_CR-01_bootstrap_top5: 28.5%, n=200).
 
 ---
 
@@ -207,7 +211,7 @@ A household-prop explainer that makes the milk upgrade visible. Her profile says
 **3. Three hook options** (her window posts are English + Hindi; one real observed hook_style: "visual curiosity using a magnifying glass to inspect a glass of milk")
 - (Hindi) "Growing years mein nutrition ka dhyaan rakhna toh banta hai." [In the growing years, paying attention to nutrition is a must.]
 - (English, prop-led) "Let's actually look at what's in this glass of milk."
-- (Hindi) "Noor ke milk mein main kya add karti hoon — aur kyun." [What I add to Noor's milk — and why.]
+- (Hindi) "Bachche ke milk mein main kya add karti hoon — aur kyun." [What I add to my child's milk — and why.]
 - Note: she uses prop-led and direct-address hooks; do not assume a voiceover-montage ad format performs better — that signal was fragile in the ad data (ads_H7: fragile, CI includes 0).
 
 **4. Five-beat outline (30–45s)**
@@ -218,9 +222,9 @@ A household-prop explainer that makes the milk upgrade visible. Her profile says
 5. (40–45s) Warm close; no comment-for-link.
 
 **5. Three sample lines** (Little Joys facts only; confirm with legal)
-- "Add it to your child's milk — 9g protein in 2 scoops." (source: ads.csv `claims_made`, Nutrimix 7+ — confirm with legal)
+- "Add it to your child's milk — 9g protein in 2 scoops." (source: ads.csv `claims_made`, LJ-009 Nutrimix 7+; other ads state 5g per 2 scoops (LJ-029, LJ-043, LJ-095), so confirm the figure with legal)
 - "23 essential vitamins and minerals; sweetened with jaggery and dates." (source: ads.csv `claims_made` — confirm with legal)
-- Benefit framing: protein-intake / overall-growth (source: ads.csv `main_benefit` — confirm with legal).
+- "Contains ragi, bajra, almonds and walnuts." (source: ads.csv `claims_made` — confirm with legal)
 
 **6. Avoid**
 - Her stated foreign notes: cold/corporate scripted ads with no personal narrative or real domestic use.
@@ -231,6 +235,8 @@ A household-prop explainer that makes the milk upgrade visible. Her profile says
 She has shown two direct milk/nutrition competitors (cr_CR-19_brands: Complan, Bournvita, …, n=18). Conflict risk is high — these are head-on category rivals. Suggestion for the manager: a strong exclusivity clause excluding malt/health-drink and kids'-nutrition brands (Complan, Bournvita and peers) for the campaign and a clear cool-off period — a suggestion to decide on given her recent collaborations.
 
 **8. Primary metric + test**
-Post-click purchase conversion (purchases ÷ link clicks). Test: hold CR-19 fixed and compare the magnifying-glass prop cut vs a plain demo cut on post-click purchase conversion. No cost metrics (limit_pricing: 0 pricing columns). Ad-level gap: [MISSING: per-hypothesis CVR not in claims.csv].
+Post-click purchase conversion (purchases ÷ link clicks). Test: hold CR-19 fixed and compare the magnifying-glass prop cut vs a plain demo cut on post-click purchase conversion. No cost metrics (limit_pricing: 0 pricing columns). Ad-level gap: ads H1 and H3 (ads_H1_cvr_in: 0.0407, n=265704 link clicks; ads_H1_cvr_out: 0.0228, n=255356 link clicks; ads_H3_cvr_in: 0.0462, n=186596 link clicks; ads_H3_cvr_out: 0.0240, n=334464 link clicks).
 
-**10. Confidence: Medium.** Reasonable resampling standing (cr_CR-19_bootstrap_top5: 50.5%, n=200) and a natural milk-category fit; the main uncertainty is her very high sponsored load (cr_CR-19_sponsored_share: 75.0%, n=20), which can dilute a single brand, plus absent audience data and synthetic performance figures.
+**9. Legal:** not flagged in the data; confirm all claims with legal.
+
+**10. Confidence: Medium.** Reasonable resampling standing (cr_CR-19_bootstrap_top5: 50.5%, n=200) and a natural milk-category fit; the main uncertainty is her very high sponsored load (cr_CR-19_sponsored_share: 75.0%, n=20), which can dilute a single brand, plus absent audience data.

@@ -125,6 +125,21 @@ def main() -> None:
             CAV_PERF, str(r["tier"]),
         )
 
+    # ---- Post-click purchase conversion (cvr) for H1 and H3 ----------------
+    for hid in ["H1", "H3"]:
+        r = prim.loc[hid]
+        for side, cvr_col, lc_col in [("in", "cvr_in", "diag_link_clicks_in"),
+                                      ("out", "cvr_out", "diag_link_clicks_out")]:
+            add(
+                f"ads_{hid}_cvr_{side}", "ads_findings",
+                f"{hid} ({r['name']}): {side}-group post-click purchase conversion "
+                f"(purchases / link clicks) is {f4(r[cvr_col])} "
+                f"(n={int(r[lc_col])} link clicks).",
+                f"cvr_{side}={f4(r[cvr_col])}", f"n={int(r[lc_col])} link clicks",
+                "outputs/ads/findings.csv", f"{cvr_col},{lc_col}", CAV_PERF,
+                str(r["tier"]),
+            )
+
     # ---- Structural S1 / S2 ------------------------------------------------
     for r in structural[structural["structure"].str.startswith(("S1", "S2"))].itertuples():
         add(
