@@ -1,0 +1,11 @@
+column,dtype,n_null,pct_null,n_rows,in_readme_guide
+creator_id,str,0,0.0,3,False
+handle,str,0,0.0,3,False
+platform,str,0,0.0,3,False
+as_of,str,0,0.0,3,True
+women_pct,float64,0,0.0,3,True
+men_pct,float64,0,0.0,3,True
+age_split,str,0,0.0,3,True
+top_cities,str,0,0.0,3,True
+top_countries,str,0,0.0,3,True
+brands_in_past_year,str,1,0.3333,3,True
