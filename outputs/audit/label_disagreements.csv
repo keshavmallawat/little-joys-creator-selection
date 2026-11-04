@@ -1,1 +1,7 @@
 ad_id,my_column,gold_value,my_value
+LJ-007,my_child_in_first_3s,yes,no
+LJ-044,my_child_in_first_3s,yes,no
+LJ-020,my_creator_type,parent_or_caregiver,none_visible
+LJ-091,my_creator_type,parent_or_caregiver,none_visible
+LJ-020,my_brand_first_said,under_3s,over_30s
+LJ-091,my_brand_first_said,5_to_10s,over_30s
