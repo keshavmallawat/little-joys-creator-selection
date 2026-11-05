@@ -4,7 +4,7 @@ This repo answers Galvor's take-home question for the kids' nutrition brand Litt
 
 ## The answer
 
-Work with CR-13, CR-03, CR-11, CR-01 and CR-19. If one drops out, the backups in order are CR-05, CR-09 and CR-16. Roles: CR-13 is an ad integrator, CR-03 and CR-01 are clinical voices, CR-11 is a family vlog with a child in every post, and CR-19 already makes milk-category content. The write-up for the marketing manager is in `report/`, and a brief for each creator (hooks, a five-beat outline, sample lines, what to avoid, a competitor note, one metric to watch) is in `outputs/final/directions_draft.md`.
+Work with CR-13, CR-03, CR-11, CR-01 and CR-19. If one drops out, the backups in order are CR-05, CR-09 and CR-16. Roles: CR-13 is an ad integrator, CR-03 and CR-01 are clinical voices, CR-11 is a family vlog with a child in every post, and CR-19 already makes milk-category content. The write-up for the marketing manager is in `report/` (an editable Word file, a four-page A4 PDF and `report.md`, which carry the same conclusions and source IDs), and a brief for each creator (hooks, a five-beat outline, sample lines, what to avoid, a competitor note, one metric to watch) is in `outputs/final/directions_draft.md`.
 
 The scoring I fixed in advance put CR-12 and CR-15 at the top, and I did not pick them. When I set aside posts that say "comment for a link", CR-15 falls from rank 2 to 14, and 9 of its 20 recent posts are of that kind. CR-12 stays at rank 1, but none of its 20 posts mentions food or feeding. So the final five is my own judgement after those checks. `outputs/creators/creator_scores.csv` is still the result of the pre-set scoring and I have not edited it.
 
@@ -13,7 +13,8 @@ The scoring I fixed in advance put CR-12 and CR-15 at the top, and I did not pic
 Using the 80 ads with spend of at least 10,000:
 
 - Ads where a child reacts to the taste returned 2.22 per rupee of spend against 0.92 for the rest (36 ads against 44).
-- Ads fronted by a parent or caregiver returned 0.92 against 2.14 for the rest (47 ads against 33). The gap is mostly one cell of 14 ads, so I would not lean on it.
+- Ads that name the brand in the first 3 seconds returned 2.21 against 1.11 (30 ads against 50). The gap's interval includes zero, so this is a lead, not a result.
+- Both gaps keep their direction at all three spend floors, in the median-ad comparison, without the highest-spend ad of each group, and leaving out each of the 8 stop-date batches in turn. The child-reacts gap reverses inside gummies (5 ads against 14), too few to count as a check. Ads fronted by a parent or caregiver returned less (0.92 against 2.14), but that group overlaps heavily with the child-reacts group, so the report does not count it separately.
 - The ads sit in only 8 stop-date batches, so the confidence intervals are narrower than they should be. Treat these as leads, not proof.
 
 The ads carry no creator ID, so these findings are about ad styles. They cannot be tied back to a specific creator.
@@ -50,12 +51,12 @@ python src/check_numbers.py outputs/final/directions_draft.md
 
 The full run takes about 20 seconds on Python 3.10. A clean re-run from scratch on Linux gave the same numbers as my Windows run. Only the row order of tied values and line endings differed.
 
-The label spot-check is a hand step. `src/label_sample.py` writes a blank sheet of 20 ads, I filled it in, and `src/label_error.py` scores it. `run_all.py` leaves `label_sample.py` out so it cannot overwrite a filled sheet, and it uses the committed `outputs/audit/label_agreement.csv` when the filled sheet is absent.
+The label spot-check is a manual step. `src/label_sample.py` writes a blank sheet of 20 ads, an AI assistant pre-filled it and I reviewed it, and `src/label_error.py` scores it. `run_all.py` leaves `label_sample.py` out so it cannot overwrite a filled sheet, and it uses the committed `outputs/audit/label_agreement.csv` when the filled sheet is absent.
 
 ## What this does not cover
 
 - The performance numbers were made up by Galvor for the exercise. I treated them as the brand's own ad account export.
-- The labels come from Galvor's AI system. My hand check matched 114 of 120 label judgements, and the hypotheses that depend on a label are capped at "suggestive" if agreement is low.
+- The labels come from Galvor's AI system. My review sheet matched 114 of 120 label judgements (an AI assistant pre-filled the sheet and I reviewed it, so this is not a blind check), and the hypotheses that depend on a label are capped at "suggestive" if agreement is low.
 - There is no pricing data, so nothing here speaks to cost per creator.
 - Audience data exists for 3 of 20 creators.
 - I did not watch the videos. Creator descriptions come from captions, labels and the profile text.

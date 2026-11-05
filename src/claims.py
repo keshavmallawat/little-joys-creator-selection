@@ -327,6 +327,19 @@ def main() -> None:
         f"audience_creators={n_aud}", f"n={n_cre}",
         "data/creator_audience.csv; data/creators.csv", "creator_id", CAV_NONE, "limit")
 
+    r20 = audience[audience["creator_id"] == "CR-20"].iloc[0]
+    add("cr_CR-20_audience", "creator_profile",
+        f"CR-20 audience is {float(r20['women_pct']):.1f}% women and {float(r20['men_pct']):.1f}% men; "
+        f"brands worked with in the past year: {r20['brands_in_past_year']}.",
+        f"women_pct={float(r20['women_pct']):.1f}; men_pct={float(r20['men_pct']):.1f}", "n=1 audience record",
+        "data/creator_audience.csv", "women_pct,men_pct,brands_in_past_year", CAV_NONE, "descriptive")
+    five = creators_df[creators_df["creator_id"].isin(CHOSEN)]
+    tot = int(five["followers"].sum())
+    add("five_total_followers", "creator_profile",
+        f"The five chosen creators have {tot:,} followers in total (context only).",
+        f"followers_total={tot}", f"n={len(five)} creators", "data/creators.csv", "followers",
+        "followers are context only, not scored", "context")
+
     has_cid = "creator_id" in ads.columns
     add("limit_ads_no_creator_id", "limits",
         f"ads.csv has no creator_id column (present: {has_cid}); ads cannot be joined to "
@@ -365,6 +378,153 @@ def main() -> None:
         f"absent.",
         f"comment_evidence_none={n_none}", f"n={n_cre}", "data/creators.csv",
         "audience_read", CAV_NONE, "limit")
+
+    # ---- Child-on-camera share and past Little Joys posts ---------------------
+    for cid in CREATOR_SET:
+        sub = in_win[in_win["creator_id"] == cid]
+        k = int((sub["children_on_camera"] == "yes").sum())
+        add(f"cr_{cid}_child_share", "creator_profile",
+            f"{cid} shows a child on camera in {k} of {len(sub)} window posts "
+            f"({pct(k / len(sub))}).",
+            f"child_on_camera_share={f4(k / len(sub))}", f"n={len(sub)}",
+            "data/creator_posts.csv", "children_on_camera", CAV_LABEL, "descriptive")
+        allp = posts[posts["creator_id"] == cid]
+        lj = allp[allp["brands_visible"].fillna("").str.contains("Little Joys", case=False)]
+        dts = "; ".join(f"{str(d)[:10]} ({'sponsored' if sp == 'yes' else 'not sponsored'})"
+                        for d, sp in zip(lj["posted_on"], lj["is_sponsored"]))
+        add(f"cr_{cid}_little_joys_posts", "creator_profile",
+            f"{cid} has {len(lj)} post(s) showing Little Joys in brands_visible"
+            f"{': ' + dts if len(lj) else ''}.",
+            f"little_joys_posts={len(lj)}", f"n={len(allp)} posts",
+            "data/creator_posts.csv", "brands_visible,posted_on,is_sponsored", CAV_LABEL,
+            "descriptive")
+
+    # ---- Data reconciliation and ad robustness (for the report) -------------
+    floor_v = int(yaml.safe_load((CONFIG / "params.yaml").read_text(encoding="utf-8"))
+                  ["spend_floor_primary"])
+    fl = ads[ads["spend_inr"] >= floor_v]
+    add("data_rows", "reconciliation",
+        f"Rows read: {len(ads)} ads, {len(creators_df)} creators, {len(posts)} creator posts "
+        f"and {len(audience)} audience records.",
+        f"ads={len(ads)}; creators={len(creators_df)}; posts={len(posts)}; "
+        f"audience={len(audience)}", "", "data/ads.csv; data/creators.csv; "
+        "data/creator_posts.csv; data/creator_audience.csv", "row counts", CAV_NONE,
+        "descriptive")
+    ld = pd.to_datetime(ads["launch_date"])
+    sd = pd.to_datetime(ads["stopped_date"])
+    dd = ads["days_live"] - (sd - ld).dt.days
+    mism = int((dd != 0).sum())
+    one_short = int((dd == -1).sum())
+    add("data_ad_dates", "reconciliation",
+        f"Ads launched {ld.min().date()} to {ld.max().date()} and stopped {sd.min().date()} "
+        f"to {sd.max().date()}; days_live is exactly one day lower than stopped_date minus "
+        f"launch_date in {one_short} of {len(ads)} ads and equal in {len(ads) - mism}; "
+        f"{int(ads['ad_id'].duplicated().sum())} duplicate ad ids. No finding uses days_live.",
+        f"launch={ld.min().date()}..{ld.max().date()}; stopped={sd.min().date()}.."
+        f"{sd.max().date()}; days_live_one_short={one_short}; days_live_equal={len(ads) - mism}",
+        f"n={len(ads)}", "data/ads.csv", "launch_date,stopped_date,days_live,ad_id",
+        CAV_NONE, "descriptive")
+    add("data_floor_set", "reconciliation",
+        f"{len(fl)} of {len(ads)} ads have spend of at least {floor_v:,} rupees (the floor "
+        f"set); they hold {fl['spend_inr'].sum() / ads['spend_inr'].sum():.1%} of all spend. "
+        f"Spend and revenue are in rupees (spend_inr, revenue_inr).",
+        f"floor_ads={len(fl)}; floor={floor_v}; spend_share="
+        f"{fl['spend_inr'].sum() / ads['spend_inr'].sum():.4f}", f"n={len(ads)}",
+        "data/ads.csv; config/params.yaml", "spend_inr,revenue_inr", CAV_PERF, "descriptive")
+    add("data_floor_roas", "reconciliation",
+        f"Across the {len(fl)} floor ads, revenue divided by spend is "
+        f"{fl['revenue_inr'].sum() / fl['spend_inr'].sum():.4f} (pooled return per rupee).",
+        f"pooled_roas={f4(fl['revenue_inr'].sum() / fl['spend_inr'].sum())}", f"n={len(fl)}",
+        "data/ads.csv", "revenue_inr,spend_inr", CAV_PERF, "descriptive")
+    cov = {h: int(prim.loc[h, "n_in"] + prim.loc[h, "n_out"]) for h in ["H1", "H3", "H6"]}
+    add("data_floor_label_coverage", "reconciliation",
+        f"H1, H3 and H6 each use all {cov['H1']} floor ads with no missing label "
+        f"({cov['H1']}, {cov['H3']} and {cov['H6']} ads).",
+        f"H1={cov['H1']}; H3={cov['H3']}; H6={cov['H6']}", f"n={len(fl)}",
+        "outputs/ads/findings.csv", "n_in,n_out", CAV_LABEL, "descriptive")
+    pw = pd.to_datetime(posts["posted_on"])
+    add("data_posts_window", "reconciliation",
+        f"Creator posts run {pw.min().date()} to {pw.max().date()}; {len(in_win)} of "
+        f"{len(posts)} fall in the {wm}-month scoring window ending {pw.max().date()}.",
+        f"first={pw.min().date()}; last={pw.max().date()}; window_posts={len(in_win)}",
+        f"n={len(posts)}", "data/creator_posts.csv", "posted_on", CAV_NONE, "descriptive")
+    for h in ["H1", "H3", "H6"]:
+        sub = rob[rob["hypothesis_id"] == h].set_index("check")
+        ref = int(sub["reference_sign"].iloc[0])
+        signs = [int(s) for s in re.findall(r"sign=([+-]\d)",
+                                            str(sub.loc["same_sign_at_all_three_floors", "detail"]))]
+        lo = sub.loc["leave_one_stop_date_out"]
+        same = int(re.search(r"(\d+) same", str(lo["detail"])).group(1))
+        npass = int((sub["result"] == "pass").sum())
+        add(f"ads_robust_{h}", "ads_robustness",
+            f"{h}: {npass} of {len(sub)} robustness checks pass; the sign matches at "
+            f"{sum(1 for s in signs if s == ref)} of {len(signs)} spend floors; leaving out each "
+            f"stop-date batch in turn keeps the sign in {same} of {int(lo['n_evaluable'])} runs; "
+            f"the median per-ad difference has the same sign; dropping the highest-spend ad of "
+            f"each group keeps the sign.",
+            f"checks_passed={npass}; checks={len(sub)}; floors_same={sum(1 for s in signs if s == ref)}"
+            f"; floors={len(signs)}; stop_dates_same={same}; stop_dates={int(lo['n_evaluable'])}",
+            "", "outputs/ads/robustness.csv", "check,result,detail", CAV_PERF, "descriptive")
+        strata = re.findall(r"(\w+): in=(\d+), out=(\d+), sign=([+-]\d)",
+                            str(sub.loc["product_form_strata", "detail"]))
+        parts = []
+        for name, a, b, s in strata:
+            parts.append(f"{name.replace('_', ' ')} {a} in versus {b} out "
+                         f"({'same' if int(s) == ref else 'opposite'} direction)")
+        add(f"ads_robust_{h}_strata", "ads_robustness",
+            f"{h} by product form: " + "; ".join(parts) + ".",
+            "; ".join(f"{n}: in={a}, out={b}, sign={s}" for n, a, b, s in strata), "",
+            "outputs/ads/robustness.csv", "product_form_strata", CAV_PERF, "descriptive")
+
+    # ---- Scoring rule and product-fact claims (for the report) ---------------
+    wt = yaml.safe_load((CONFIG / "weights.yaml").read_text(encoding="utf-8"))
+    comp = wt["components"]
+    w_ev = float(comp["evidence_fit"]["weight"])
+    w_au = float(comp["audience_response"]["weight"])
+    w_sp = float(comp["sponsored_fit"]["weight"])
+    add("rule_weights", "scoring_rule",
+        f"Scoring weights fixed before any creator was scored: evidence_fit {w_ev:.2f}, "
+        f"audience_response {w_au:.2f}, sponsored_fit {w_sp:.2f}; each component is a percentile "
+        f"rank among the 20 creators.",
+        f"evidence_fit={w_ev:.2f}; audience_response={w_au:.2f}; sponsored_fit={w_sp:.2f}",
+        f"n={n_cre}", "config/weights.yaml", "components.*.weight", CAV_NONE, "frozen")
+    mp = int(re.search(r">=\s*(\d+)", str(comp["audience_response"]["min_data"]["rule"])).group(1))
+    ms = int(re.search(r">=\s*(\d+)", str(comp["sponsored_fit"]["min_data"]["rule"])).group(1))
+    add("rule_min_data", "scoring_rule",
+        f"A component needs enough posts or it scores a neutral 0.5: at least {mp} posts with "
+        f"plays for audience_response and at least {ms} sponsored posts for sponsored_fit.",
+        f"min_posts_with_plays={mp}; min_sponsored_posts={ms}; neutral=0.5", "",
+        "config/weights.yaml", "components.*.min_data", CAV_NONE, "frozen")
+    dr = int(wt["stability"]["draws"])
+    sd_ = int(wt["stability"]["seed"])
+    add("rule_stability", "scoring_rule",
+        f"Rank stability: each creator's window posts were resampled with replacement {dr} times "
+        f"(seed {sd_}), all scores and ranks recomputed each time; the figure reported is the "
+        f"share of resamples in which a creator is in the top 5.",
+        f"resamples={dr}; seed={sd_}", "", "outputs/creators/bootstrap_top5.csv; "
+        "config/weights.yaml", "top5_share", CAV_NONE, "frozen")
+    cap = int(wt["portfolio"]["max_clinical_persona_in_final_5"])
+    add("rule_cap", "scoring_rule",
+        f"Portfolio rule fixed in advance: at most {cap} clinical-persona creators in the final five.",
+        f"max_clinical={cap}", "", "config/weights.yaml", "portfolio", CAV_NONE, "frozen")
+    nut = ads[ads["ad_copy"].fillna("").str.contains("Nutrimix", case=False)
+              | ads["claims_made"].fillna("").str.contains("Nutrimix", case=False)]
+    # Keep the kids' product only: skip ads for moms or teens, and skip segments that state
+    # a daily requirement or an equivalence (not a product figure).
+    nut = nut[~(nut["ad_copy"].fillna("") + " " + nut["claims_made"].fillna("")).str.contains(
+        r"Nutrimix for Moms|supermoms|teen", case=False, regex=True)]
+    figs: dict[int, list[str]] = {}
+    for _, r_ in nut.iterrows():
+        for seg in str(r_["claims_made"]).split(";"):
+            if re.search(r"require|equal", seg, flags=re.I):
+                continue
+            for g in re.findall(r"(\d+)\s?g\s+(?:of\s+)?protein", seg, flags=re.I):
+                figs.setdefault(int(g), []).append(r_["ad_id"])
+    fig_txt = "; ".join(f"{g}g in {', '.join(sorted(set(v)))}" for g, v in sorted(figs.items()))
+    add("product_protein_figures", "product_facts",
+        f"Little Joys' own Nutrimix ads for kids quote different protein figures: {fig_txt}.",
+        f"figures_g={';'.join(str(g) for g in sorted(figs))}", f"n={len(nut)} Nutrimix ads",
+        "data/ads.csv", "claims_made", CAV_NONE, "descriptive")
 
     out = pd.DataFrame(rows, columns=[
         "claim_id", "section", "statement", "value", "n", "source_file",
