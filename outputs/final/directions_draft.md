@@ -77,7 +77,7 @@ A calm clinical explainer that treats the product as one option inside a balance
 
 ### 3. Three hook options
 (his window posts are Hindi + English; one real observed hook_style: "Direct address posing a common parenting question")
-- (Hindi) "Bachcha khaana kha raha hai, par kya use sahi nutrition mil raha hai?" [The child is eating, but is he getting the right nutrition?]
+- (Hindi) "Bachcha kha toh raha hai, par kya use sahi poshan bhi mil raha hai?" [The child is eating, but is he getting proper nutrition too?]
 - (Hindi) "Growing years mein sirf calories kaafi nahi." [In the growing years, calories alone are not enough.]
 - (English) "What actually goes into your child's daily nutrition: a quick checklist."
 - Note: his native hook is the direct question, but do not assume question hooks perform better. That signal was fragile in the ad data (ads_H4: fragile, in 1.2775 n=19 vs out 1.5592 n=61, CI includes 0).
@@ -127,7 +127,7 @@ A candid mini-vlog where the product enters a real moment of the child's day. Hi
 ### 3. Three hook options
 (his window posts are mostly Hindi; one real observed hook_style: "A personal moment between the creator and a child")
 - (Hindi) "Aaj subah uthte hi main bahut excited tha, bataun kyun?" [The moment I woke up today I was so excited, shall I tell you why?]
-- (Hindi) "Mamma ke morning milk wale natak ka ek solution." [A fix for the morning-milk drama with Mumma.]
+- (Hindi) "Subah doodh pilana roz ka drama ban gaya hai? Aaj ek naya tareeka try karte hain." [Has the morning milk become a daily drama? Let's try a new way today.]
 - (Hindi/English) "Packing for the trip, aur ek cheez main kabhi nahi bhoolta." [… and one thing I never forget.]
 - Note: his native format is a candid child vlog; do not assume a scripted story-opening format performs better. That signal was fragile in the ad data (ads_H5: fragile, in 1.9359 n=17 vs out 1.2962 n=63, CI includes 0).
 
