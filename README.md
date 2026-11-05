@@ -53,6 +53,8 @@ The full run takes about 20 seconds on Python 3.10. A clean re-run from scratch 
 
 The label spot-check is a manual step. `src/label_sample.py` writes a blank sheet of 20 ads, an AI assistant pre-filled it and I reviewed it, and `src/label_error.py` scores it. `run_all.py` leaves `label_sample.py` out so it cannot overwrite a filled sheet, and it uses the committed `outputs/audit/label_agreement.csv` when the filled sheet is absent.
 
+To check the headline figures independently, run `python src/verify_independent.py`. It does not import the pipeline: it reads `data/` and `outputs/`, recomputes the spend-floor set, the H1, H3 and H6 ROAS and purchase rates, a fresh bootstrap interval for each, the post window, the follower total and one rank, and compares them with what the pipeline wrote (26 checks).
+
 ## What this does not cover
 
 - The performance numbers were made up by Galvor for the exercise. I treated them as the brand's own ad account export.

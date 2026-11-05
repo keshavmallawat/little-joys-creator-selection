@@ -91,6 +91,7 @@ def main() -> None:
     scores = pd.read_csv(CRE / "creator_scores.csv").set_index("creator_id")
     linksens = pd.read_csv(CRE / "link_sensitivity.csv").set_index("creator_id")
     boot = pd.read_csv(CRE / "bootstrap_top5.csv").set_index("creator_id")
+    sens = pd.read_csv(CRE / "sensitivity.csv").set_index("creator_id")
     food = pd.read_csv(CRE / "food_scan.csv").set_index("creator_id")
     brands = pd.read_csv(CRE / "brands_by_creator.csv")
     manual = pd.read_csv(FINAL / "manual_checks.csv")
@@ -242,6 +243,14 @@ def main() -> None:
             f"top5_share={f4(boot.loc[cid, 'top5_share'])}", f"n={draws} draws",
             "outputs/creators/bootstrap_top5.csv; config/weights.yaml",
             "top5_share; stability.draws", CAV_NONE, "frozen")
+
+        sv = sens.loc[cid]
+        k_top = int(sum(bool(sv[c]) for c in ("top5_frozen", "top5_A", "top5_B", "top5_C")))
+        add(f"cr_{cid}_weightings_top5", "creator_profile",
+            f"{cid} is in the top 5 under {k_top} of 4 score weightings (frozen plus three alternates).",
+            f"weightings_top5={k_top}", "n=4 weightings",
+            "outputs/creators/sensitivity.csv", "top5_frozen,top5_A,top5_B,top5_C",
+            "post-hoc sensitivity; frozen ranking remains primary", "post-hoc-sensitivity")
 
         add(f"cr_{cid}_link_request_share", "creator_profile",
             f"{pct(ls['link_request_share'])} of {cid}'s window posts are link-request posts "
