@@ -165,6 +165,19 @@ def main() -> None:
             "cell,pooled_roas,median_per_ad_roas,n_ads", CAV_PERF, "post-hoc",
         )
 
+    # ---- Post-hoc composition of the H1-in / H6-out cell --------------------
+    comp = posthoc[posthoc["view"] == "H1in_H6out_by_creator_type"]
+    cell_n = int(posthoc[(posthoc["view"] == "cross_2x2") & (posthoc["cell"] == "H1in_H6out")]["n_ads"].iloc[0])
+    for r in comp.itertuples():
+        add(
+            f"posthoc_H1in_H6out_{r.item}", "ads_posthoc",
+            f"Post-hoc (not pre-registered): {int(r.n_ads)} of the {cell_n} ads in the H1-in, H6-out cell "
+            f"have creator_type {r.item} (counts only; no performance figure).",
+            f"n_ads={int(r.n_ads)}; cell_n={cell_n}", f"n={cell_n}",
+            "outputs/ads/posthoc_h1_h6.csv", "view,cell,item,n_ads",
+            "counts only; small cell", "post-hoc",
+        )
+
     # ---- Floor-set facts ---------------------------------------------------
     for r in structural[structural["structure"] == "floor_product_form_mix"].itertuples():
         add(

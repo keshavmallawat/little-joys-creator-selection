@@ -4,7 +4,7 @@ This repo answers Galvor's take-home question for the kids' nutrition brand Litt
 
 ## The answer
 
-Work with CR-13, CR-03, CR-11, CR-01 and CR-19. If one drops out, the backups in order are CR-05, CR-09 and CR-16. Roles: CR-13 is an ad integrator, CR-03 and CR-01 are clinical voices, CR-11 is a family vlog with a child in every post, and CR-19 already makes milk-category content. The write-up for the marketing manager is in `report/` (an editable Word file, a four-page A4 PDF and `report.md`, which carry the same conclusions and source IDs), and a brief for each creator (hooks, a five-beat outline, sample lines, what to avoid, a competitor note, one metric to watch) is in `outputs/final/directions_draft.md`.
+Work with CR-13, CR-03, CR-11, CR-01 and CR-19. If one drops out, the backups in order are CR-05, CR-09 and CR-16. Roles: CR-13 is an ad integrator, CR-03 and CR-01 are clinical voices, CR-11 is a family vlog with a child in every post, and CR-19 already makes milk-category content. The write-up for the marketing manager is in `report/` (an editable Word file, a six-page A4 PDF and `report.md`, which carry the same conclusions and source IDs), and a brief for each creator (hooks, a five-beat outline, sample lines, what to avoid, a competitor note, one metric to watch) is in `outputs/final/directions_draft.md`.
 
 The scoring I fixed in advance put CR-12 and CR-15 at the top, and I did not pick them. When I set aside posts that say "comment for a link", CR-15 falls from rank 2 to 14, and 9 of its 20 recent posts are of that kind. CR-12 stays at rank 1, but none of its 20 posts mentions food or feeding. So the final five is my own judgement after those checks. `outputs/creators/creator_scores.csv` is still the result of the pre-set scoring and I have not edited it.
 
@@ -52,6 +52,8 @@ python src/check_numbers.py outputs/final/directions_draft.md
 The full run takes about 20 seconds on Python 3.10. A clean re-run from scratch on Linux gave the same numbers as my Windows run. Only the row order of tied values and line endings differed.
 
 The label spot-check is a manual step. `src/label_sample.py` writes a blank sheet of 20 ads, an AI assistant pre-filled it and I reviewed it, and `src/label_error.py` scores it. `run_all.py` leaves `label_sample.py` out so it cannot overwrite a filled sheet, and it uses the committed `outputs/audit/label_agreement.csv` when the filled sheet is absent.
+
+`report/creator_explorer.html` is a single page (built by `python src/build_explorer.py`) that lists all 20 creators with their score rank, rank stability, food share, sponsored share and comment-for-link share. It sorts, filters and searches, and opens in any browser with no server.
 
 To check the headline figures independently, run `python src/verify_independent.py`. It does not import the pipeline: it reads `data/` and `outputs/`, recomputes the spend-floor set, the H1, H3 and H6 ROAS and purchase rates, a fresh bootstrap interval for each, the post window, the follower total and one rank, and compares them with what the pipeline wrote (26 checks).
 

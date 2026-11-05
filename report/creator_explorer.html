@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Little Joys creator explorer</title>
+<style>
+:root{--ink:#1b2733;--mut:#5b6773;--acc:#2f4858;--bg:#fff;--card:#f4f2ec;--line:#d5dae0;--g:#e1efe4;--a:#fbefd0;--r:#f7dad5}
+@media (prefers-color-scheme:dark){:root{--ink:#e8edf1;--mut:#9aa7b2;--acc:#9fc2d6;--bg:#12181e;--card:#1b242c;--line:#33414d;--g:#1f3a2b;--a:#4a3d17;--r:#4a2420}}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,Arial,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
+h1{margin:0 0 4px;font-size:26px;color:var(--acc)} p{margin:6px 0}
+.warn{background:#fbf3e1;color:#3a2f12;border-left:5px solid #b7791f;padding:10px 14px;margin:14px 0;border-radius:4px}
+@media (prefers-color-scheme:dark){.warn{background:#3a2f12;color:#f3e6c4}}
+.bar{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+button,input,select{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:900px}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;white-space:nowrap}
+th{cursor:pointer;background:var(--card);position:sticky;top:0} th:hover{color:var(--acc)}
+td.num{text-align:right} .tag{padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600}
+.test{background:var(--g)}.backup{background:var(--a)}.set_aside{background:var(--r)}
+small{color:var(--mut)}
+</style></head><body><main>
+<h1>Little Joys creator explorer</h1>
+<p>All 20 creators, from the same files as the report. Click a column to sort.</p>
+<div class="warn"><b>Read this before you rely on it.</b> The ad figures behind the report are simulated, not Little Joys results. The labels come from an AI system and are not always right. Rank stability and the weightings column are post-hoc checks, not part of the frozen score. This page shows associations, not proof that a creator will sell.</div>
+<div class="bar">
+<button data-f="all" class="on">All 20</button><button data-f="test">My five</button><button data-f="backup">Backups</button>
+<button data-f="set_aside">Set aside</button><button data-f="top5">Score's top five</button>
+<input id="q" placeholder="Search handle or persona" aria-label="Search">
+</div>
+<div class="wrap"><table id="t"><thead><tr></tr></thead><tbody></tbody></table></div>
+<p><small>Score rank is the frozen pre-set score (1 = highest). Stability is the share of 200 post-resampling runs in which the creator is in the top five. "Weightings" counts, out of 4, how many score versions (the original and three alternates) put the creator in the top five. Food, sponsored and comment-for-link are shares of the creator's posts in the 12 months to 2026-10-27. The number of posts differs by creator (see the Posts column), so a percentage on a small count moves a lot with one post.</small></p>
+<script>
+const D=[{"id": "CR-12", "handle": "raising_zohran", "persona": "Empathetic Mom-Mentor", "followers": 22659, "rank": 1, "score": 0.771, "stability": 99.0, "weightings": 4, "food": 0.0, "sponsored": 15.0, "link": 40.0, "posts": 20, "flags": "no audience data", "status": "set_aside"}, {"id": "CR-15", "handle": "tej.lil.diary", "persona": "Relatable Mom-Next-Door", "followers": 35280, "rank": 2, "score": 0.666, "stability": 76.0, "weightings": 4, "food": 10.0, "sponsored": 30.0, "link": 45.0, "posts": 20, "flags": "none", "status": "set_aside"}, {"id": "CR-13", "handle": "mumma_and_ridhu", "persona": "The Graceful Indian Mom-Influencer", "followers": 115612, "rank": 3, "score": 0.665, "stability": 83.5, "weightings": 4, "food": 5.0, "sponsored": 60.0, "link": 10.0, "posts": 20, "flags": "no audience data", "status": "test"}, {"id": "CR-09", "handle": "doc_mama_and_babies", "persona": "The Trusted Doctor-Mom", "followers": 153896, "rank": 4, "score": 0.657, "stability": 61.0, "weightings": 1, "food": 18.2, "sponsored": 72.7, "link": 18.2, "posts": 11, "flags": "hidden likes, no audience data, legal review", "status": "backup"}, {"id": "CR-19", "handle": "instamommy_suchi", "persona": "The Trustworthy Mom-Expert", "followers": 288693, "rank": 5, "score": 0.653, "stability": 50.5, "weightings": 4, "food": 15.0, "sponsored": 75.0, "link": 10.0, "posts": 20, "flags": "no audience data", "status": "test"}, {"id": "CR-01", "handle": "drgarima_mehta", "persona": "Clinical Pediatric Authority", "followers": 48906, "rank": 6, "score": 0.553, "stability": 28.5, "weightings": 2, "food": 30.0, "sponsored": 10.0, "link": 5.0, "posts": 20, "flags": "no audience data, legal review", "status": "test"}, {"id": "CR-05", "handle": "sia_3vedi", "persona": "precocious child performer", "followers": 2831180, "rank": 7, "score": 0.541, "stability": 19.5, "weightings": 0, "food": 5.6, "sponsored": 5.6, "link": 0.0, "posts": 18, "flags": "no audience data", "status": "backup"}, {"id": "CR-16", "handle": "paediatrics_decoded", "persona": "The Trusted Pediatrician", "followers": 263188, "rank": 8, "score": 0.529, "stability": 34.0, "weightings": 0, "food": 15.0, "sponsored": 0.0, "link": 0.0, "posts": 20, "flags": "no audience data, legal review", "status": "backup"}, {"id": "CR-03", "handle": "ekamichildcare", "persona": "Clinical Pediatric Authority", "followers": 164333, "rank": 9, "score": 0.529, "stability": 15.0, "weightings": 0, "food": 35.0, "sponsored": 10.0, "link": 0.0, "posts": 20, "flags": "no audience data, legal review", "status": "test"}, {"id": "CR-11", "handle": "raja_choudhary04", "persona": "Family-Centric Mini-Vlogger", "followers": 196955, "rank": 10, "score": 0.528, "stability": 11.5, "weightings": 1, "food": 25.0, "sponsored": 35.0, "link": 0.0, "posts": 20, "flags": "no audience data", "status": "test"}, {"id": "CR-17", "handle": "radhikabansal0908", "persona": "The Relatable Mom-Expert", "followers": 395569, "rank": 11, "score": 0.504, "stability": 0.0, "weightings": 0, "food": 10.0, "sponsored": 100.0, "link": 15.0, "posts": 20, "flags": "hidden likes, no audience data", "status": "not_chosen"}, {"id": "CR-06", "handle": "thatkushalmistry", "persona": "relatable Gujarati observational comedian", "followers": 1706047, "rank": 12, "score": 0.496, "stability": 0.0, "weightings": 0, "food": 0.0, "sponsored": 5.6, "link": 0.0, "posts": 18, "flags": "no audience data", "status": "not_chosen"}, {"id": "CR-14", "handle": "parentingtips_surat", "persona": "Clinical Pediatrician Authority", "followers": 1120817, "rank": 13, "score": 0.467, "stability": 11.5, "weightings": 0, "food": 10.0, "sponsored": 0.0, "link": 0.0, "posts": 20, "flags": "legal review", "status": "not_chosen"}, {"id": "CR-07", "handle": "ohmother.in", "persona": "relatable domestic documentarian", "followers": 34672, "rank": 14, "score": 0.451, "stability": 5.0, "weightings": 0, "food": 5.3, "sponsored": 21.1, "link": 5.3, "posts": 19, "flags": "no audience data", "status": "not_chosen"}, {"id": "CR-08", "handle": "the_mum_wife_playbook", "persona": "Relatable Mom-Next-Door", "followers": 39571, "rank": 15, "score": 0.425, "stability": 2.5, "weightings": 0, "food": 10.5, "sponsored": 21.1, "link": 0.0, "posts": 19, "flags": "no audience data", "status": "not_chosen"}, {"id": "CR-20", "handle": "storiesbyvihaa", "persona": "The Adorable Family Chronicler", "followers": 827496, "rank": 16, "score": 0.385, "stability": 1.0, "weightings": 0, "food": 0.0, "sponsored": 10.0, "link": 0.0, "posts": 20, "flags": "none", "status": "not_chosen"}, {"id": "CR-10", "handle": "couple_adishiv", "persona": "sentimental family documentarian", "followers": 48934, "rank": 17, "score": 0.34, "stability": 1.5, "weightings": 0, "food": 10.0, "sponsored": 35.0, "link": 50.0, "posts": 20, "flags": "no audience data", "status": "not_chosen"}, {"id": "CR-18", "handle": "foodies_by_neha", "persona": "efficient home-management mentor", "followers": 1009385, "rank": 18, "score": 0.321, "stability": 0.0, "weightings": 0, "food": 77.8, "sponsored": 11.1, "link": 0.0, "posts": 9, "flags": "no audience data", "status": "not_chosen"}, {"id": "CR-02", "handle": "livesimply_withkripa", "persona": "Relatable family-centric storyteller", "followers": 67658, "rank": 19, "score": 0.291, "stability": 0.0, "weightings": 0, "food": 5.0, "sponsored": 0.0, "link": 0.0, "posts": 20, "flags": "hidden likes, no audience data", "status": "not_chosen"}, {"id": "CR-04", "handle": "hello_ps8", "persona": "Sentimental Lifestyle Mom", "followers": 216882, "rank": 20, "score": 0.228, "stability": 0.0, "weightings": 0, "food": 0.0, "sponsored": 10.0, "link": 0.0, "posts": 20, "flags": "no audience data", "status": "not_chosen"}];
+const COLS=[["id","Creator"],["handle","Handle"],["persona","Persona"],["status","Status"],["rank","Score rank"],["stability","Stability %"],["weightings","Top 5 in x of 4"],["food","Food posts %"],["sponsored","Sponsored %"],["link","Comment-for-link %"],["posts","Posts in window"],["followers","Followers"],["flags","Flags"]];
+const LAB={test:"Test first",backup:"Backup",set_aside:"Set aside",not_chosen:"Not chosen"};
+let filt="all",sortK="rank",asc=true,q="";
+const th=document.querySelector("thead tr");
+COLS.forEach(([k,l])=>{const e=document.createElement("th");e.textContent=l;e.onclick=()=>{asc=(sortK===k)?!asc:true;sortK=k;draw()};th.appendChild(e)});
+function stab(v){return v>=50?"var(--g)":v>=20?"var(--a)":"var(--r)"}
+function draw(){
+ let r=D.filter(x=>filt==="all"||(filt==="top5"?x.rank<=5:x.status===filt)).filter(x=>(x.handle+x.persona).toLowerCase().includes(q));
+ r.sort((a,b)=>{const A=a[sortK],B=b[sortK];return (A>B?1:A<B?-1:0)*(asc?1:-1)});
+ const tb=document.querySelector("tbody");tb.innerHTML="";
+ r.forEach(x=>{const tr=document.createElement("tr");
+  COLS.forEach(([k])=>{const td=document.createElement("td");let v=x[k];
+   if(k==="status"){td.innerHTML='<span class="tag '+x.status+'">'+LAB[x.status]+'</span>'}
+   else if(k==="stability"){td.className="num";td.style.background=stab(v);td.textContent=v.toFixed(1)}
+   else if(k==="followers"){td.className="num";td.textContent=v.toLocaleString("en-IN")}
+   else if(typeof v==="number"){td.className="num";td.textContent=Number.isInteger(v)?v:v.toFixed(1)}
+   else td.textContent=v;tr.appendChild(td)});tb.appendChild(tr)});
+ document.querySelectorAll(".bar button").forEach(b=>b.classList.toggle("on",b.dataset.f===filt));
+}
+document.querySelectorAll(".bar button").forEach(b=>b.onclick=()=>{filt=b.dataset.f;draw()});
+document.getElementById("q").oninput=e=>{q=e.target.value.toLowerCase();draw()};
+draw();
+</script></main></body></html>
